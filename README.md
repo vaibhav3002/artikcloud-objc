@@ -5,7 +5,8 @@ This SDK helps you connect your iOS or OS X applications to ARTIK Cloud. It expo
 
 ## Requirements
 
-The API client library requires ARC (Automatic Reference Counting) to be enabled in your Xcode project.
+The Objective C SDK requires [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to be installed. 
+The SDK also requires ARC (Automatic Reference Counting) to be enabled in your Xcode project.
 
 ## Installation
 
@@ -18,6 +19,13 @@ pod "ArtikCloud", :path => "/path/to/lib"
 ## Coding Recommendation
 
 It's recommended to create an instance of ApiClient per thread in a multithreaded environment to avoid any potential issue.
+
+Usage
+------
+
+Peek into [tests](https://github.com/artikcloud/artikcloud-objc/tree/master/ArtikCloudTests/ArtikCloudClientTests) for examples about how to use the SDK.
+
+In addition, you can look at our tutorial and sample applications. These will give you a good overview of what you can do and how to do it.
 
 More about ARTIK Cloud
 ---------------------
