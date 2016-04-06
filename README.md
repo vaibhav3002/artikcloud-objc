@@ -1,7 +1,23 @@
-ARTIK Cloud Objective-C/iOS SDK
+ARTIK Cloud Objective-C SDK
 ==========================
 
-This SDK helps you connect your iOS apps to ARTIK Cloud. It exposes a number of methods to easily execute REST API calls to ARTIK Cloud.
+This SDK helps you connect your iOS or OS X applications to ARTIK Cloud. It exposes a number of methods to easily execute REST API calls to ARTIK Cloud.
+
+## Requirements
+
+The API client library requires ARC (Automatic Reference Counting) to be enabled in your Xcode project.
+
+## Installation
+
+To install it, put the API client library in your project and then simply add the following line to your Podfile:
+
+```ruby
+pod "ArtikCloud", :path => "/path/to/lib"
+```
+
+## Coding Recommendation
+
+It's recommended to create an instance of ApiClient per thread in a multithreaded environment to avoid any potential issue.
 
 More about ARTIK Cloud
 ---------------------

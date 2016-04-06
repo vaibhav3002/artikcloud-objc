@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		630D07B31CAC85B000A9223B /* MessagesApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 630D07B21CAC85B000A9223B /* MessagesApiTests.m */; };
+		630D07B51CAC8C9B00A9223B /* TokensApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 630D07B41CAC8C9B00A9223B /* TokensApiTests.m */; };
+		63B9D1BE1CAAE9EF0033D3D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B9D1BD1CAAE9EF0033D3D8 /* main.m */; };
+		63B9D1C11CAAE9EF0033D3D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B9D1C01CAAE9EF0033D3D8 /* AppDelegate.m */; };
+		63B9D1C41CAAE9EF0033D3D8 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B9D1C31CAAE9EF0033D3D8 /* MasterViewController.m */; };
+		63B9D1C71CAAE9EF0033D3D8 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B9D1C61CAAE9EF0033D3D8 /* DetailViewController.m */; };
+		63B9D1CA1CAAE9EF0033D3D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B9D1C81CAAE9EF0033D3D8 /* Main.storyboard */; };
+		63B9D1CC1CAAE9EF0033D3D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B9D1CB1CAAE9EF0033D3D8 /* Assets.xcassets */; };
+		63B9D1CF1CAAE9EF0033D3D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B9D1CD1CAAE9EF0033D3D8 /* LaunchScreen.storyboard */; };
+		63B9D1DA1CAAE9EF0033D3D8 /* UsersApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B9D1D91CAAE9EF0033D3D8 /* UsersApiTests.m */; };
+		81E6D36031CE2B47BBB80C13 /* libPods-ArtikCloudClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE65360F77B07D24941E844 /* libPods-ArtikCloudClientTests.a */; };
+		BAF237FC11F1A8DA4E46D074 /* libPods-ArtikCloudClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77193F8BCAA1FF48A945D144 /* libPods-ArtikCloudClient.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		63B9D1D61CAAE9EF0033D3D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63B9D1B11CAAE9EF0033D3D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63B9D1B81CAAE9EF0033D3D8;
+			remoteInfo = ArtikCloudClient;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		044CB4B3F12D3A98B606C3F9 /* Pods-ArtikCloudClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtikCloudClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtikCloudClient/Pods-ArtikCloudClient.release.xcconfig"; sourceTree = "<group>"; };
+		0AE65360F77B07D24941E844 /* libPods-ArtikCloudClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtikCloudClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		630D07B21CAC85B000A9223B /* MessagesApiTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesApiTests.m; sourceTree = "<group>"; };
+		630D07B41CAC8C9B00A9223B /* TokensApiTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TokensApiTests.m; sourceTree = "<group>"; };
+		63B9D1B91CAAE9EF0033D3D8 /* ArtikCloudClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtikCloudClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63B9D1BD1CAAE9EF0033D3D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		63B9D1BF1CAAE9EF0033D3D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		63B9D1C01CAAE9EF0033D3D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		63B9D1C21CAAE9EF0033D3D8 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		63B9D1C31CAAE9EF0033D3D8 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		63B9D1C51CAAE9EF0033D3D8 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		63B9D1C61CAAE9EF0033D3D8 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		63B9D1C91CAAE9EF0033D3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		63B9D1CB1CAAE9EF0033D3D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		63B9D1CE1CAAE9EF0033D3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		63B9D1D01CAAE9EF0033D3D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63B9D1D51CAAE9EF0033D3D8 /* ArtikCloudClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtikCloudClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		63B9D1D91CAAE9EF0033D3D8 /* UsersApiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsersApiTests.m; sourceTree = "<group>"; };
+		63B9D1DB1CAAE9EF0033D3D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77193F8BCAA1FF48A945D144 /* libPods-ArtikCloudClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtikCloudClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4ED3C808D697B42EE825B13 /* Pods-ArtikCloudClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtikCloudClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtikCloudClient/Pods-ArtikCloudClient.debug.xcconfig"; sourceTree = "<group>"; };
+		DBBB7486910BA46D9A3FAC06 /* Pods-ArtikCloudClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtikCloudClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FE55AFBBB5A0F2FF64290CFD /* Pods-ArtikCloudClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtikCloudClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63B9D1B61CAAE9EF0033D3D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAF237FC11F1A8DA4E46D074 /* libPods-ArtikCloudClient.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B9D1D21CAAE9EF0033D3D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81E6D36031CE2B47BBB80C13 /* libPods-ArtikCloudClientTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		353F07CF6BE8B279D431F775 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				77193F8BCAA1FF48A945D144 /* libPods-ArtikCloudClient.a */,
+				0AE65360F77B07D24941E844 /* libPods-ArtikCloudClientTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		63B9D1B01CAAE9EF0033D3D8 = {
+			isa = PBXGroup;
+			children = (
+				63B9D1BB1CAAE9EF0033D3D8 /* ArtikCloudClient */,
+				63B9D1D81CAAE9EF0033D3D8 /* ArtikCloudClientTests */,
+				63B9D1BA1CAAE9EF0033D3D8 /* Products */,
+				D39371FC0DDE802F2A1A92E8 /* Pods */,
+				353F07CF6BE8B279D431F775 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		63B9D1BA1CAAE9EF0033D3D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63B9D1B91CAAE9EF0033D3D8 /* ArtikCloudClient.app */,
+				63B9D1D51CAAE9EF0033D3D8 /* ArtikCloudClientTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63B9D1BB1CAAE9EF0033D3D8 /* ArtikCloudClient */ = {
+			isa = PBXGroup;
+			children = (
+				63B9D1BF1CAAE9EF0033D3D8 /* AppDelegate.h */,
+				63B9D1C01CAAE9EF0033D3D8 /* AppDelegate.m */,
+				63B9D1C21CAAE9EF0033D3D8 /* MasterViewController.h */,
+				63B9D1C31CAAE9EF0033D3D8 /* MasterViewController.m */,
+				63B9D1C51CAAE9EF0033D3D8 /* DetailViewController.h */,
+				63B9D1C61CAAE9EF0033D3D8 /* DetailViewController.m */,
+				63B9D1C81CAAE9EF0033D3D8 /* Main.storyboard */,
+				63B9D1CB1CAAE9EF0033D3D8 /* Assets.xcassets */,
+				63B9D1CD1CAAE9EF0033D3D8 /* LaunchScreen.storyboard */,
+				63B9D1D01CAAE9EF0033D3D8 /* Info.plist */,
+				63B9D1BC1CAAE9EF0033D3D8 /* Supporting Files */,
+			);
+			path = ArtikCloudClient;
+			sourceTree = "<group>";
+		};
+		63B9D1BC1CAAE9EF0033D3D8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				63B9D1BD1CAAE9EF0033D3D8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63B9D1D81CAAE9EF0033D3D8 /* ArtikCloudClientTests */ = {
+			isa = PBXGroup;
+			children = (
+				63B9D1D91CAAE9EF0033D3D8 /* UsersApiTests.m */,
+				63B9D1DB1CAAE9EF0033D3D8 /* Info.plist */,
+				630D07B21CAC85B000A9223B /* MessagesApiTests.m */,
+				630D07B41CAC8C9B00A9223B /* TokensApiTests.m */,
+			);
+			path = ArtikCloudClientTests;
+			sourceTree = "<group>";
+		};
+		D39371FC0DDE802F2A1A92E8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B4ED3C808D697B42EE825B13 /* Pods-ArtikCloudClient.debug.xcconfig */,
+				044CB4B3F12D3A98B606C3F9 /* Pods-ArtikCloudClient.release.xcconfig */,
+				DBBB7486910BA46D9A3FAC06 /* Pods-ArtikCloudClientTests.debug.xcconfig */,
+				FE55AFBBB5A0F2FF64290CFD /* Pods-ArtikCloudClientTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63B9D1B81CAAE9EF0033D3D8 /* ArtikCloudClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63B9D1DE1CAAE9EF0033D3D8 /* Build configuration list for PBXNativeTarget "ArtikCloudClient" */;
+			buildPhases = (
+				E52E449C1A388D753D8A7C75 /* Check Pods Manifest.lock */,
+				63B9D1B51CAAE9EF0033D3D8 /* Sources */,
+				63B9D1B61CAAE9EF0033D3D8 /* Frameworks */,
+				63B9D1B71CAAE9EF0033D3D8 /* Resources */,
+				178B66CCE9A460C2B7B9B689 /* Embed Pods Frameworks */,
+				B7CB3E32BBF2FA03701F4D6B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArtikCloudClient;
+			productName = ArtikCloudClient;
+			productReference = 63B9D1B91CAAE9EF0033D3D8 /* ArtikCloudClient.app */;
+			productType = "com.apple.product-type.application";
+		};
+		63B9D1D41CAAE9EF0033D3D8 /* ArtikCloudClientTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63B9D1E11CAAE9EF0033D3D8 /* Build configuration list for PBXNativeTarget "ArtikCloudClientTests" */;
+			buildPhases = (
+				7B608960F6FA232A8BB7BC04 /* Check Pods Manifest.lock */,
+				63B9D1D11CAAE9EF0033D3D8 /* Sources */,
+				63B9D1D21CAAE9EF0033D3D8 /* Frameworks */,
+				63B9D1D31CAAE9EF0033D3D8 /* Resources */,
+				507B20BD820EC1328604E3AD /* Embed Pods Frameworks */,
+				C44FAE8CA874F86BB2B13987 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63B9D1D71CAAE9EF0033D3D8 /* PBXTargetDependency */,
+			);
+			name = ArtikCloudClientTests;
+			productName = ArtikCloudClientTests;
+			productReference = 63B9D1D51CAAE9EF0033D3D8 /* ArtikCloudClientTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63B9D1B11CAAE9EF0033D3D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Samsung Strategy and Innovation Center";
+				TargetAttributes = {
+					63B9D1B81CAAE9EF0033D3D8 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 64N3JHS89D;
+					};
+					63B9D1D41CAAE9EF0033D3D8 = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 64N3JHS89D;
+						TestTargetID = 63B9D1B81CAAE9EF0033D3D8;
+					};
+				};
+			};
+			buildConfigurationList = 63B9D1B41CAAE9EF0033D3D8 /* Build configuration list for PBXProject "ArtikCloudClient" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 63B9D1B01CAAE9EF0033D3D8;
+			productRefGroup = 63B9D1BA1CAAE9EF0033D3D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63B9D1B81CAAE9EF0033D3D8 /* ArtikCloudClient */,
+				63B9D1D41CAAE9EF0033D3D8 /* ArtikCloudClientTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63B9D1B71CAAE9EF0033D3D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B9D1CF1CAAE9EF0033D3D8 /* LaunchScreen.storyboard in Resources */,
+				63B9D1CC1CAAE9EF0033D3D8 /* Assets.xcassets in Resources */,
+				63B9D1CA1CAAE9EF0033D3D8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B9D1D31CAAE9EF0033D3D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		178B66CCE9A460C2B7B9B689 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtikCloudClient/Pods-ArtikCloudClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		507B20BD820EC1328604E3AD /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B608960F6FA232A8BB7BC04 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B7CB3E32BBF2FA03701F4D6B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtikCloudClient/Pods-ArtikCloudClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C44FAE8CA874F86BB2B13987 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E52E449C1A388D753D8A7C75 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63B9D1B51CAAE9EF0033D3D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63B9D1C11CAAE9EF0033D3D8 /* AppDelegate.m in Sources */,
+				63B9D1C41CAAE9EF0033D3D8 /* MasterViewController.m in Sources */,
+				63B9D1BE1CAAE9EF0033D3D8 /* main.m in Sources */,
+				63B9D1C71CAAE9EF0033D3D8 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63B9D1D11CAAE9EF0033D3D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630D07B31CAC85B000A9223B /* MessagesApiTests.m in Sources */,
+				63B9D1DA1CAAE9EF0033D3D8 /* UsersApiTests.m in Sources */,
+				630D07B51CAC8C9B00A9223B /* TokensApiTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63B9D1D71CAAE9EF0033D3D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63B9D1B81CAAE9EF0033D3D8 /* ArtikCloudClient */;
+			targetProxy = 63B9D1D61CAAE9EF0033D3D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		63B9D1C81CAAE9EF0033D3D8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63B9D1C91CAAE9EF0033D3D8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		63B9D1CD1CAAE9EF0033D3D8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63B9D1CE1CAAE9EF0033D3D8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		63B9D1DC1CAAE9EF0033D3D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		63B9D1DD1CAAE9EF0033D3D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		63B9D1DF1CAAE9EF0033D3D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4ED3C808D697B42EE825B13 /* Pods-ArtikCloudClient.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ArtikCloudClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cloud.artik.ArtikCloudClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		63B9D1E01CAAE9EF0033D3D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 044CB4B3F12D3A98B606C3F9 /* Pods-ArtikCloudClient.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ArtikCloudClient/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cloud.artik.ArtikCloudClient;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		63B9D1E21CAAE9EF0033D3D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBBB7486910BA46D9A3FAC06 /* Pods-ArtikCloudClientTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ArtikCloudClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cloud.artik.ArtikCloudClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArtikCloudClient.app/ArtikCloudClient";
+			};
+			name = Debug;
+		};
+		63B9D1E31CAAE9EF0033D3D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE55AFBBB5A0F2FF64290CFD /* Pods-ArtikCloudClientTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ArtikCloudClientTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cloud.artik.ArtikCloudClientTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArtikCloudClient.app/ArtikCloudClient";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		63B9D1B41CAAE9EF0033D3D8 /* Build configuration list for PBXProject "ArtikCloudClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63B9D1DC1CAAE9EF0033D3D8 /* Debug */,
+				63B9D1DD1CAAE9EF0033D3D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63B9D1DE1CAAE9EF0033D3D8 /* Build configuration list for PBXNativeTarget "ArtikCloudClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63B9D1DF1CAAE9EF0033D3D8 /* Debug */,
+				63B9D1E01CAAE9EF0033D3D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63B9D1E11CAAE9EF0033D3D8 /* Build configuration list for PBXNativeTarget "ArtikCloudClientTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63B9D1E21CAAE9EF0033D3D8 /* Debug */,
+				63B9D1E31CAAE9EF0033D3D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 63B9D1B11CAAE9EF0033D3D8 /* Project object */;
+}

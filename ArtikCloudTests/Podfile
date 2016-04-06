@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'ArtikCloudClient', :exclusive => true do
+  pod "ArtikCloud", :path => "../"
+end
+
+target 'ArtikCloudClientTests', :exclusive => true do
+  pod "ArtikCloud", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+end
