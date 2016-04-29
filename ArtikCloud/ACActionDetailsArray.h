@@ -16,6 +16,6 @@
 @interface ACActionDetailsArray : ACObject
 
 
-@property(nonatomic) NSArray<ACActionDetails>* tags;
+@property(nonatomic) NSArray<ACActionDetails>* actions;
 
 @end

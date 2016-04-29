@@ -21,19 +21,6 @@
 +(ACTagsApi*) sharedAPI;
 ///
 ///
-/// Get all tags of categories
-/// Get all tags related to the list of categories
-///
-/// @param categories Comma separated list of categories.
-/// 
-///
-/// @return ACTagsEnvelope*
--(NSNumber*) getTagsByCategoriesWithCategories: (NSString*) categories
-    completionHandler: (void (^)(ACTagsEnvelope* output, NSError* error)) handler;
-
-
-///
-///
 /// Get all categories
 /// Get all tags marked as categories
 ///
@@ -60,6 +47,19 @@
     tags: (NSString*) tags
     name: (NSString*) name
     count: (NSNumber*) count
+    completionHandler: (void (^)(ACTagsEnvelope* output, NSError* error)) handler;
+
+
+///
+///
+/// Get all tags of categories
+/// Get all tags related to the list of categories
+///
+/// @param categories Comma separated list of categories.
+/// 
+///
+/// @return ACTagsEnvelope*
+-(NSNumber*) getTagsByCategoriesWithCategories: (NSString*) categories
     completionHandler: (void (^)(ACTagsEnvelope* output, NSError* error)) handler;
 
 

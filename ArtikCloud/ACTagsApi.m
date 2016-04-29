@@ -70,85 +70,6 @@ static ACTagsApi* singletonAPI = nil;
 #pragma mark - Api Methods
 
 ///
-/// Get all tags of categories
-/// Get all tags related to the list of categories
-///  @param categories Comma separated list of categories.
-///
-///  @returns ACTagsEnvelope*
-///
--(NSNumber*) getTagsByCategoriesWithCategories: (NSString*) categories
-    completionHandler: (void (^)(ACTagsEnvelope* output, NSError* error)) handler {
-
-    
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tags"];
-
-    // remove format in URL if needed
-    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
-        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
-    }
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (categories != nil) {
-        
-        queryParams[@"categories"] = categories;
-    }
-    
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
-
-    
-
-    // HTTP header `Accept`
-    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
-    if ([headerParams[@"Accept"] length] == 0) {
-        [headerParams removeObjectForKey:@"Accept"];
-    }
-
-    // response content type
-    NSString *responseContentType;
-    if ([headerParams objectForKey:@"Accept"]) {
-        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
-    }
-    else {
-        responseContentType = @"";
-    }
-
-    // request content type
-    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"artikcloud_oauth"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    
-    
-    
-
-    
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"ACTagsEnvelope*"
-                           completionBlock: ^(id data, NSError *error) {
-                               handler((ACTagsEnvelope*)data, error);
-                           }
-          ];
-}
-
-///
 /// Get all categories
 /// Get all tags marked as categories
 ///  @returns ACTagsEnvelope*
@@ -224,13 +145,13 @@ static ACTagsApi* singletonAPI = nil;
 ///
 /// Get tag suggestions
 /// Get tag suggestions for applications, device types that have been most used with a group of tags.
-///  @param entityType Entity type name.
+///  @param entityType Entity type name. (optional)
 ///
-///  @param tags Comma separated list of tags.
+///  @param tags Comma separated list of tags. (optional)
 ///
-///  @param name Name of tags used for type ahead.
+///  @param name Name of tags used for type ahead. (optional)
 ///
-///  @param count Number of results to return. Max 10.
+///  @param count Number of results to return. Max 10. (optional)
 ///
 ///  @returns ACTagsEnvelope*
 ///
@@ -268,6 +189,85 @@ static ACTagsApi* singletonAPI = nil;
     if (count != nil) {
         
         queryParams[@"count"] = count;
+    }
+    
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
+    
+
+    // HTTP header `Accept`
+    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"artikcloud_oauth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    
+    
+    
+
+    
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"ACTagsEnvelope*"
+                           completionBlock: ^(id data, NSError *error) {
+                               handler((ACTagsEnvelope*)data, error);
+                           }
+          ];
+}
+
+///
+/// Get all tags of categories
+/// Get all tags related to the list of categories
+///  @param categories Comma separated list of categories. (optional)
+///
+///  @returns ACTagsEnvelope*
+///
+-(NSNumber*) getTagsByCategoriesWithCategories: (NSString*) categories
+    completionHandler: (void (^)(ACTagsEnvelope* output, NSError* error)) handler {
+
+    
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/tags"];
+
+    // remove format in URL if needed
+    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
+        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (categories != nil) {
+        
+        queryParams[@"categories"] = categories;
     }
     
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];

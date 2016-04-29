@@ -38,6 +38,19 @@
 
 ///
 ///
+/// Delete Rule
+/// Delete a Rule
+///
+/// @param ruleId Rule ID.
+/// 
+///
+/// @return ACRuleEnvelope*
+-(NSNumber*) deleteRuleWithRuleId: (NSString*) ruleId
+    completionHandler: (void (^)(ACRuleEnvelope* output, NSError* error)) handler;
+
+
+///
+///
 /// Get Rule
 /// Get a rule using the Rule ID
 ///
@@ -61,19 +74,6 @@
 /// @return ACRuleEnvelope*
 -(NSNumber*) updateRuleWithRuleId: (NSString*) ruleId
     ruleInfo: (ACRuleUpdateInfo*) ruleInfo
-    completionHandler: (void (^)(ACRuleEnvelope* output, NSError* error)) handler;
-
-
-///
-///
-/// Delete Rule
-/// Delete a Rule
-///
-/// @param ruleId Rule ID.
-/// 
-///
-/// @return ACRuleEnvelope*
--(NSNumber*) deleteRuleWithRuleId: (NSString*) ruleId
     completionHandler: (void (^)(ACRuleEnvelope* output, NSError* error)) handler;
 
 

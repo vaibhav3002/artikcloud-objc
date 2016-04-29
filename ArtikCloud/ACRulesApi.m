@@ -74,9 +74,9 @@ static ACRulesApi* singletonAPI = nil;
 ///
 /// Create Rule
 /// Create a new Rule
-///  @param ruleInfo Rule object that needs to be added
+///  @param ruleInfo Rule object that needs to be added 
 ///
-///  @param userId User ID
+///  @param userId User ID 
 ///
 ///  @returns ACRuleEnvelope*
 ///
@@ -164,9 +164,92 @@ static ACRulesApi* singletonAPI = nil;
 }
 
 ///
+/// Delete Rule
+/// Delete a Rule
+///  @param ruleId Rule ID. 
+///
+///  @returns ACRuleEnvelope*
+///
+-(NSNumber*) deleteRuleWithRuleId: (NSString*) ruleId
+    completionHandler: (void (^)(ACRuleEnvelope* output, NSError* error)) handler {
+
+    
+    // verify the required parameter 'ruleId' is set
+    if (ruleId == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `ruleId` when calling `deleteRule`"];
+    }
+    
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/rules/{ruleId}"];
+
+    // remove format in URL if needed
+    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
+        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (ruleId != nil) {
+        pathParams[@"ruleId"] = ruleId;
+    }
+    
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
+    
+
+    // HTTP header `Accept`
+    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"artikcloud_oauth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    
+    
+    
+
+    
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"DELETE"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"ACRuleEnvelope*"
+                           completionBlock: ^(id data, NSError *error) {
+                               handler((ACRuleEnvelope*)data, error);
+                           }
+          ];
+}
+
+///
 /// Get Rule
 /// Get a rule using the Rule ID
-///  @param ruleId Rule ID.
+///  @param ruleId Rule ID. 
 ///
 ///  @returns ACRuleEnvelope*
 ///
@@ -249,9 +332,9 @@ static ACRulesApi* singletonAPI = nil;
 ///
 /// Update Rule
 /// Update an existing Rule
-///  @param ruleId Rule ID.
+///  @param ruleId Rule ID. 
 ///
-///  @param ruleInfo Rule object that needs to be updated
+///  @param ruleInfo Rule object that needs to be updated 
 ///
 ///  @returns ACRuleEnvelope*
 ///
@@ -321,89 +404,6 @@ static ACRulesApi* singletonAPI = nil;
     
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"ACRuleEnvelope*"
-                           completionBlock: ^(id data, NSError *error) {
-                               handler((ACRuleEnvelope*)data, error);
-                           }
-          ];
-}
-
-///
-/// Delete Rule
-/// Delete a Rule
-///  @param ruleId Rule ID.
-///
-///  @returns ACRuleEnvelope*
-///
--(NSNumber*) deleteRuleWithRuleId: (NSString*) ruleId
-    completionHandler: (void (^)(ACRuleEnvelope* output, NSError* error)) handler {
-
-    
-    // verify the required parameter 'ruleId' is set
-    if (ruleId == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `ruleId` when calling `deleteRule`"];
-    }
-    
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/rules/{ruleId}"];
-
-    // remove format in URL if needed
-    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
-        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
-    }
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (ruleId != nil) {
-        pathParams[@"ruleId"] = ruleId;
-    }
-    
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
-
-    
-
-    // HTTP header `Accept`
-    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
-    if ([headerParams[@"Accept"] length] == 0) {
-        [headerParams removeObjectForKey:@"Accept"];
-    }
-
-    // response content type
-    NSString *responseContentType;
-    if ([headerParams objectForKey:@"Accept"]) {
-        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
-    }
-    else {
-        responseContentType = @"";
-    }
-
-    // request content type
-    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"artikcloud_oauth"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    
-    
-    
-
-    
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"DELETE"
                                 pathParams: pathParams
                                queryParams: queryParams
                                 formParams: formParams

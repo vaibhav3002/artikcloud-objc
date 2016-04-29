@@ -74,7 +74,7 @@ static ACDevicesApi* singletonAPI = nil;
 ///
 /// Add Device
 /// Create a device
-///  @param device Device to be added to the user
+///  @param device Device to be added to the user 
 ///
 ///  @returns ACDeviceEnvelope*
 ///
@@ -152,9 +152,175 @@ static ACDevicesApi* singletonAPI = nil;
 }
 
 ///
+/// Delete Device
+/// Deletes a device
+///  @param deviceId deviceId 
+///
+///  @returns ACDeviceEnvelope*
+///
+-(NSNumber*) deleteDeviceWithDeviceId: (NSString*) deviceId
+    completionHandler: (void (^)(ACDeviceEnvelope* output, NSError* error)) handler {
+
+    
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `deviceId` when calling `deleteDevice`"];
+    }
+    
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/devices/{deviceId}"];
+
+    // remove format in URL if needed
+    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
+        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (deviceId != nil) {
+        pathParams[@"deviceId"] = deviceId;
+    }
+    
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
+    
+
+    // HTTP header `Accept`
+    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"artikcloud_oauth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    
+    
+    
+
+    
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"DELETE"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"ACDeviceEnvelope*"
+                           completionBlock: ^(id data, NSError *error) {
+                               handler((ACDeviceEnvelope*)data, error);
+                           }
+          ];
+}
+
+///
+/// Delete Device Token
+/// Deletes a device's token
+///  @param deviceId deviceId 
+///
+///  @returns ACDeviceTokenEnvelope*
+///
+-(NSNumber*) deleteDeviceTokenWithDeviceId: (NSString*) deviceId
+    completionHandler: (void (^)(ACDeviceTokenEnvelope* output, NSError* error)) handler {
+
+    
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `deviceId` when calling `deleteDeviceToken`"];
+    }
+    
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/devices/{deviceId}/tokens"];
+
+    // remove format in URL if needed
+    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
+        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (deviceId != nil) {
+        pathParams[@"deviceId"] = deviceId;
+    }
+    
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
+    
+
+    // HTTP header `Accept`
+    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"artikcloud_oauth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    
+    
+    
+
+    
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"DELETE"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"ACDeviceTokenEnvelope*"
+                           completionBlock: ^(id data, NSError *error) {
+                               handler((ACDeviceTokenEnvelope*)data, error);
+                           }
+          ];
+}
+
+///
 /// Get Device
 /// Retrieves a device
-///  @param deviceId deviceId
+///  @param deviceId deviceId 
 ///
 ///  @returns ACDeviceEnvelope*
 ///
@@ -235,11 +401,94 @@ static ACDevicesApi* singletonAPI = nil;
 }
 
 ///
+/// Get Device Token
+/// Retrieves a device's token
+///  @param deviceId deviceId 
+///
+///  @returns ACDeviceTokenEnvelope*
+///
+-(NSNumber*) getDeviceTokenWithDeviceId: (NSString*) deviceId
+    completionHandler: (void (^)(ACDeviceTokenEnvelope* output, NSError* error)) handler {
+
+    
+    // verify the required parameter 'deviceId' is set
+    if (deviceId == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `deviceId` when calling `getDeviceToken`"];
+    }
+    
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/devices/{deviceId}/tokens"];
+
+    // remove format in URL if needed
+    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
+        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    if (deviceId != nil) {
+        pathParams[@"deviceId"] = deviceId;
+    }
+    
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
+    
+
+    // HTTP header `Accept`
+    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"artikcloud_oauth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    
+    
+    
+
+    
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"ACDeviceTokenEnvelope*"
+                           completionBlock: ^(id data, NSError *error) {
+                               handler((ACDeviceTokenEnvelope*)data, error);
+                           }
+          ];
+}
+
+///
 /// Update Device
 /// Updates a device
-///  @param deviceId deviceId
+///  @param deviceId deviceId 
 ///
-///  @param device Device to be updated
+///  @param device Device to be updated 
 ///
 ///  @returns ACDeviceEnvelope*
 ///
@@ -326,175 +575,9 @@ static ACDevicesApi* singletonAPI = nil;
 }
 
 ///
-/// Delete Device
-/// Deletes a device
-///  @param deviceId deviceId
-///
-///  @returns ACDeviceEnvelope*
-///
--(NSNumber*) deleteDeviceWithDeviceId: (NSString*) deviceId
-    completionHandler: (void (^)(ACDeviceEnvelope* output, NSError* error)) handler {
-
-    
-    // verify the required parameter 'deviceId' is set
-    if (deviceId == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `deviceId` when calling `deleteDevice`"];
-    }
-    
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/devices/{deviceId}"];
-
-    // remove format in URL if needed
-    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
-        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
-    }
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (deviceId != nil) {
-        pathParams[@"deviceId"] = deviceId;
-    }
-    
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
-
-    
-
-    // HTTP header `Accept`
-    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
-    if ([headerParams[@"Accept"] length] == 0) {
-        [headerParams removeObjectForKey:@"Accept"];
-    }
-
-    // response content type
-    NSString *responseContentType;
-    if ([headerParams objectForKey:@"Accept"]) {
-        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
-    }
-    else {
-        responseContentType = @"";
-    }
-
-    // request content type
-    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"artikcloud_oauth"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    
-    
-    
-
-    
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"DELETE"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"ACDeviceEnvelope*"
-                           completionBlock: ^(id data, NSError *error) {
-                               handler((ACDeviceEnvelope*)data, error);
-                           }
-          ];
-}
-
-///
-/// Get Device Token
-/// Retrieves a device's token
-///  @param deviceId deviceId
-///
-///  @returns ACDeviceTokenEnvelope*
-///
--(NSNumber*) getDeviceTokenWithDeviceId: (NSString*) deviceId
-    completionHandler: (void (^)(ACDeviceTokenEnvelope* output, NSError* error)) handler {
-
-    
-    // verify the required parameter 'deviceId' is set
-    if (deviceId == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `deviceId` when calling `getDeviceToken`"];
-    }
-    
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/devices/{deviceId}/tokens"];
-
-    // remove format in URL if needed
-    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
-        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
-    }
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (deviceId != nil) {
-        pathParams[@"deviceId"] = deviceId;
-    }
-    
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
-
-    
-
-    // HTTP header `Accept`
-    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
-    if ([headerParams[@"Accept"] length] == 0) {
-        [headerParams removeObjectForKey:@"Accept"];
-    }
-
-    // response content type
-    NSString *responseContentType;
-    if ([headerParams objectForKey:@"Accept"]) {
-        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
-    }
-    else {
-        responseContentType = @"";
-    }
-
-    // request content type
-    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"artikcloud_oauth"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    
-    
-    
-
-    
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"ACDeviceTokenEnvelope*"
-                           completionBlock: ^(id data, NSError *error) {
-                               handler((ACDeviceTokenEnvelope*)data, error);
-                           }
-          ];
-}
-
-///
 /// Update Device Token
 /// Updates a device's token
-///  @param deviceId deviceId
+///  @param deviceId deviceId 
 ///
 ///  @returns ACDeviceTokenEnvelope*
 ///
@@ -558,89 +641,6 @@ static ACDevicesApi* singletonAPI = nil;
     
     return [self.apiClient requestWithPath: resourcePath
                                     method: @"PUT"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"ACDeviceTokenEnvelope*"
-                           completionBlock: ^(id data, NSError *error) {
-                               handler((ACDeviceTokenEnvelope*)data, error);
-                           }
-          ];
-}
-
-///
-/// Delete Device Token
-/// Deletes a device's token
-///  @param deviceId deviceId
-///
-///  @returns ACDeviceTokenEnvelope*
-///
--(NSNumber*) deleteDeviceTokenWithDeviceId: (NSString*) deviceId
-    completionHandler: (void (^)(ACDeviceTokenEnvelope* output, NSError* error)) handler {
-
-    
-    // verify the required parameter 'deviceId' is set
-    if (deviceId == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `deviceId` when calling `deleteDeviceToken`"];
-    }
-    
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/devices/{deviceId}/tokens"];
-
-    // remove format in URL if needed
-    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
-        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
-    }
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (deviceId != nil) {
-        pathParams[@"deviceId"] = deviceId;
-    }
-    
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
-
-    
-
-    // HTTP header `Accept`
-    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
-    if ([headerParams[@"Accept"] length] == 0) {
-        [headerParams removeObjectForKey:@"Accept"];
-    }
-
-    // response content type
-    NSString *responseContentType;
-    if ([headerParams objectForKey:@"Accept"]) {
-        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
-    }
-    else {
-        responseContentType = @"";
-    }
-
-    // request content type
-    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"artikcloud_oauth"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    
-    
-    
-
-    
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"DELETE"
                                 pathParams: pathParams
                                queryParams: queryParams
                                 formParams: formParams

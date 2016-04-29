@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
-#import "ACUserEnvelope.h"
-#import "ACDevicesEnvelope.h"
-#import "ACDeviceTypesEnvelope.h"
 #import "ACPropertiesEnvelope.h"
 #import "ACAppProperties.h"
+#import "ACUserEnvelope.h"
+#import "ACDeviceTypesEnvelope.h"
+#import "ACDevicesEnvelope.h"
 #import "ACRulesEnvelope.h"
 #import "ACObject.h"
 #import "ACApiClient.h"
@@ -24,88 +24,6 @@
 -(unsigned long) requestQueueSize;
 +(ACUsersApi*) apiWithHeader:(NSString*)headerValue key:(NSString*)key;
 +(ACUsersApi*) sharedAPI;
-///
-///
-/// Get Current User Profile
-/// Get's the current user's profile
-///
-/// 
-///
-/// @return ACUserEnvelope*
--(NSNumber*) getSelfWithCompletionHandler: 
-    (void (^)(ACUserEnvelope* output, NSError* error)) handler;
-
-
-///
-///
-/// Get User Devices
-/// Retrieve User's Devices
-///
-/// @param userId User ID
-/// @param offset Offset for pagination.
-/// @param count Desired count of items in the result set
-/// @param includeProperties Optional. Boolean (true/false) - If false, only return the user&#39;s device types. If true, also return device types shared by other users.
-/// 
-///
-/// @return ACDevicesEnvelope*
--(NSNumber*) getUserDevicesWithUserId: (NSString*) userId
-    offset: (NSNumber*) offset
-    count: (NSNumber*) count
-    includeProperties: (NSNumber*) includeProperties
-    completionHandler: (void (^)(ACDevicesEnvelope* output, NSError* error)) handler;
-
-
-///
-///
-/// Get User Device Types
-/// Retrieve User's Device Types
-///
-/// @param userId User ID.
-/// @param offset Offset for pagination.
-/// @param count Desired count of items in the result set
-/// @param includeShared Optional. Boolean (true/false) - If false, only return the user&#39;s device types. If true, also return device types shared by other users.
-/// 
-///
-/// @return ACDeviceTypesEnvelope*
--(NSNumber*) getUserDeviceTypesWithUserId: (NSString*) userId
-    offset: (NSNumber*) offset
-    count: (NSNumber*) count
-    includeShared: (NSNumber*) includeShared
-    completionHandler: (void (^)(ACDeviceTypesEnvelope* output, NSError* error)) handler;
-
-
-///
-///
-/// Get User application properties
-/// Get application properties of a user
-///
-/// @param userId User Id
-/// @param aid Application ID
-/// 
-///
-/// @return ACPropertiesEnvelope*
--(NSNumber*) getUserPropertiesWithUserId: (NSString*) userId
-    aid: (NSString*) aid
-    completionHandler: (void (^)(ACPropertiesEnvelope* output, NSError* error)) handler;
-
-
-///
-///
-/// Update User Application Properties
-/// Updates application properties of a user
-///
-/// @param userId User Id
-/// @param properties Properties to be updated
-/// @param aid Application ID
-/// 
-///
-/// @return ACPropertiesEnvelope*
--(NSNumber*) updateUserPropertiesWithUserId: (NSString*) userId
-    properties: (ACAppProperties*) properties
-    aid: (NSString*) aid
-    completionHandler: (void (^)(ACPropertiesEnvelope* output, NSError* error)) handler;
-
-
 ///
 ///
 /// Create User Application Properties
@@ -140,6 +58,71 @@
 
 ///
 ///
+/// Get Current User Profile
+/// Get's the current user's profile
+///
+/// 
+///
+/// @return ACUserEnvelope*
+-(NSNumber*) getSelfWithCompletionHandler: 
+    (void (^)(ACUserEnvelope* output, NSError* error)) handler;
+
+
+///
+///
+/// Get User Device Types
+/// Retrieve User's Device Types
+///
+/// @param userId User ID.
+/// @param offset Offset for pagination.
+/// @param count Desired count of items in the result set
+/// @param includeShared Optional. Boolean (true/false) - If false, only return the user&#39;s device types. If true, also return device types shared by other users.
+/// 
+///
+/// @return ACDeviceTypesEnvelope*
+-(NSNumber*) getUserDeviceTypesWithUserId: (NSString*) userId
+    offset: (NSNumber*) offset
+    count: (NSNumber*) count
+    includeShared: (NSNumber*) includeShared
+    completionHandler: (void (^)(ACDeviceTypesEnvelope* output, NSError* error)) handler;
+
+
+///
+///
+/// Get User Devices
+/// Retrieve User's Devices
+///
+/// @param userId User ID
+/// @param offset Offset for pagination.
+/// @param count Desired count of items in the result set
+/// @param includeProperties Optional. Boolean (true/false) - If false, only return the user&#39;s device types. If true, also return device types shared by other users.
+/// 
+///
+/// @return ACDevicesEnvelope*
+-(NSNumber*) getUserDevicesWithUserId: (NSString*) userId
+    offset: (NSNumber*) offset
+    count: (NSNumber*) count
+    includeProperties: (NSNumber*) includeProperties
+    completionHandler: (void (^)(ACDevicesEnvelope* output, NSError* error)) handler;
+
+
+///
+///
+/// Get User application properties
+/// Get application properties of a user
+///
+/// @param userId User Id
+/// @param aid Application ID
+/// 
+///
+/// @return ACPropertiesEnvelope*
+-(NSNumber*) getUserPropertiesWithUserId: (NSString*) userId
+    aid: (NSString*) aid
+    completionHandler: (void (^)(ACPropertiesEnvelope* output, NSError* error)) handler;
+
+
+///
+///
 /// Get User Rules
 /// Retrieve User's Rules
 ///
@@ -157,6 +140,23 @@
     count: (NSNumber*) count
     offset: (NSNumber*) offset
     completionHandler: (void (^)(ACRulesEnvelope* output, NSError* error)) handler;
+
+
+///
+///
+/// Update User Application Properties
+/// Updates application properties of a user
+///
+/// @param userId User Id
+/// @param properties Properties to be updated
+/// @param aid Application ID
+/// 
+///
+/// @return ACPropertiesEnvelope*
+-(NSNumber*) updateUserPropertiesWithUserId: (NSString*) userId
+    properties: (ACAppProperties*) properties
+    aid: (NSString*) aid
+    completionHandler: (void (^)(ACPropertiesEnvelope* output, NSError* error)) handler;
 
 
 

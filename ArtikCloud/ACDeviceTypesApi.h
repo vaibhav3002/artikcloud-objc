@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
-#import "ACDeviceTypesEnvelope.h"
-#import "ACDeviceTypeEnvelope.h"
 #import "ACManifestVersionsEnvelope.h"
+#import "ACDeviceTypeEnvelope.h"
+#import "ACDeviceTypesEnvelope.h"
 #import "ACManifestPropertiesEnvelope.h"
 #import "ACObject.h"
 #import "ACApiClient.h"
@@ -24,21 +24,15 @@
 +(ACDeviceTypesApi*) sharedAPI;
 ///
 ///
-/// Get Device Types
-/// Retrieves Device Types
+/// Get Available Manifest Versions
+/// Get a Device Type's available manifest versions
 ///
-/// @param name Device Type name
-/// @param offset Offset for pagination.
-/// @param count Desired count of items in the result set
-/// @param tags Elements tagged with the list of tags. (comma separated)
+/// @param deviceTypeId deviceTypeId
 /// 
 ///
-/// @return ACDeviceTypesEnvelope*
--(NSNumber*) getDeviceTypesWithName: (NSString*) name
-    offset: (NSNumber*) offset
-    count: (NSNumber*) count
-    tags: (NSString*) tags
-    completionHandler: (void (^)(ACDeviceTypesEnvelope* output, NSError* error)) handler;
+/// @return ACManifestVersionsEnvelope*
+-(NSNumber*) getAvailableManifestVersionsWithDeviceTypeId: (NSString*) deviceTypeId
+    completionHandler: (void (^)(ACManifestVersionsEnvelope* output, NSError* error)) handler;
 
 
 ///
@@ -56,15 +50,21 @@
 
 ///
 ///
-/// Get Available Manifest Versions
-/// Get a Device Type's available manifest versions
+/// Get Device Types
+/// Retrieves Device Types
 ///
-/// @param deviceTypeId deviceTypeId
+/// @param name Device Type name
+/// @param offset Offset for pagination.
+/// @param count Desired count of items in the result set
+/// @param tags Elements tagged with the list of tags. (comma separated)
 /// 
 ///
-/// @return ACManifestVersionsEnvelope*
--(NSNumber*) getAvailableManifestVersionsWithDeviceTypeId: (NSString*) deviceTypeId
-    completionHandler: (void (^)(ACManifestVersionsEnvelope* output, NSError* error)) handler;
+/// @return ACDeviceTypesEnvelope*
+-(NSNumber*) getDeviceTypesWithName: (NSString*) name
+    offset: (NSNumber*) offset
+    count: (NSNumber*) count
+    tags: (NSString*) tags
+    completionHandler: (void (^)(ACDeviceTypesEnvelope* output, NSError* error)) handler;
 
 
 ///

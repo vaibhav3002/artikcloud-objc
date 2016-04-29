@@ -1,11 +1,11 @@
 #import "ACMessagesApi.h"
 #import "ACQueryParamCollection.h"
-#import "ACNormalizedMessagesEnvelope.h"
-#import "ACMessageAction.h"
-#import "ACMessageIDEnvelope.h"
-#import "ACAggregatesResponse.h"
 #import "ACAggregatesHistogramResponse.h"
 #import "ACFieldPresenceEnvelope.h"
+#import "ACNormalizedMessagesEnvelope.h"
+#import "ACAggregatesResponse.h"
+#import "ACMessageAction.h"
+#import "ACMessageIDEnvelope.h"
 
 
 @interface ACMessagesApi ()
@@ -75,27 +75,479 @@ static ACMessagesApi* singletonAPI = nil;
 #pragma mark - Api Methods
 
 ///
+/// Get Histogram aggregates
+/// Get Histogram on normalized messages.
+///  @param startDate Timestamp of earliest message (in milliseconds since epoch). 
+///
+///  @param endDate Timestamp of latest message (in milliseconds since epoch). 
+///
+///  @param sdid Source device ID of the messages being searched. (optional)
+///
+///  @param field Message field being queried for building histogram. (optional)
+///
+///  @param interval Interval of time for building histogram blocks. (Valid values: minute, hour, day, month, year) (optional)
+///
+///  @returns ACAggregatesHistogramResponse*
+///
+-(NSNumber*) getAggregatesHistogramWithStartDate: (NSNumber*) startDate
+    endDate: (NSNumber*) endDate
+    sdid: (NSString*) sdid
+    field: (NSString*) field
+    interval: (NSString*) interval
+    completionHandler: (void (^)(ACAggregatesHistogramResponse* output, NSError* error)) handler {
+
+    
+    // verify the required parameter 'startDate' is set
+    if (startDate == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `startDate` when calling `getAggregatesHistogram`"];
+    }
+    
+    // verify the required parameter 'endDate' is set
+    if (endDate == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `endDate` when calling `getAggregatesHistogram`"];
+    }
+    
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/messages/analytics/histogram"];
+
+    // remove format in URL if needed
+    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
+        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (startDate != nil) {
+        
+        queryParams[@"startDate"] = startDate;
+    }
+    if (endDate != nil) {
+        
+        queryParams[@"endDate"] = endDate;
+    }
+    if (sdid != nil) {
+        
+        queryParams[@"sdid"] = sdid;
+    }
+    if (field != nil) {
+        
+        queryParams[@"field"] = field;
+    }
+    if (interval != nil) {
+        
+        queryParams[@"interval"] = interval;
+    }
+    
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
+    
+
+    // HTTP header `Accept`
+    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"artikcloud_oauth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    
+    
+    
+
+    
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"ACAggregatesHistogramResponse*"
+                           completionBlock: ^(id data, NSError *error) {
+                               handler((ACAggregatesHistogramResponse*)data, error);
+                           }
+          ];
+}
+
+///
+/// Get normalized message presence
+/// Get normalized message presence.
+///  @param startDate startDate 
+///
+///  @param endDate endDate 
+///
+///  @param interval String representing grouping interval. One of: 'minute' (1 hour limit), 'hour' (1 day limit), 'day' (31 days limit), 'month' (1 year limit), or 'year' (10 years limit). 
+///
+///  @param sdid Source device ID of the messages being searched. (optional)
+///
+///  @param fieldPresence String representing a field from the specified device ID. (optional)
+///
+///  @returns ACFieldPresenceEnvelope*
+///
+-(NSNumber*) getFieldPresenceWithStartDate: (NSNumber*) startDate
+    endDate: (NSNumber*) endDate
+    interval: (NSString*) interval
+    sdid: (NSString*) sdid
+    fieldPresence: (NSString*) fieldPresence
+    completionHandler: (void (^)(ACFieldPresenceEnvelope* output, NSError* error)) handler {
+
+    
+    // verify the required parameter 'startDate' is set
+    if (startDate == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `startDate` when calling `getFieldPresence`"];
+    }
+    
+    // verify the required parameter 'endDate' is set
+    if (endDate == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `endDate` when calling `getFieldPresence`"];
+    }
+    
+    // verify the required parameter 'interval' is set
+    if (interval == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `interval` when calling `getFieldPresence`"];
+    }
+    
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/messages/presence"];
+
+    // remove format in URL if needed
+    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
+        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (sdid != nil) {
+        
+        queryParams[@"sdid"] = sdid;
+    }
+    if (fieldPresence != nil) {
+        
+        queryParams[@"fieldPresence"] = fieldPresence;
+    }
+    if (startDate != nil) {
+        
+        queryParams[@"startDate"] = startDate;
+    }
+    if (endDate != nil) {
+        
+        queryParams[@"endDate"] = endDate;
+    }
+    if (interval != nil) {
+        
+        queryParams[@"interval"] = interval;
+    }
+    
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
+    
+
+    // HTTP header `Accept`
+    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"artikcloud_oauth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    
+    
+    
+
+    
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"ACFieldPresenceEnvelope*"
+                           completionBlock: ^(id data, NSError *error) {
+                               handler((ACFieldPresenceEnvelope*)data, error);
+                           }
+          ];
+}
+
+///
+/// Get Last Normalized Message
+/// Get last messages normalized.
+///  @param count Number of items to return per query. (optional)
+///
+///  @param sdids Comma separated list of source device IDs (minimum: 1). (optional)
+///
+///  @param fieldPresence String representing a field from the specified device ID. (optional)
+///
+///  @returns ACNormalizedMessagesEnvelope*
+///
+-(NSNumber*) getLastNormalizedMessagesWithCount: (NSNumber*) count
+    sdids: (NSString*) sdids
+    fieldPresence: (NSString*) fieldPresence
+    completionHandler: (void (^)(ACNormalizedMessagesEnvelope* output, NSError* error)) handler {
+
+    
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/messages/last"];
+
+    // remove format in URL if needed
+    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
+        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (count != nil) {
+        
+        queryParams[@"count"] = count;
+    }
+    if (sdids != nil) {
+        
+        queryParams[@"sdids"] = sdids;
+    }
+    if (fieldPresence != nil) {
+        
+        queryParams[@"fieldPresence"] = fieldPresence;
+    }
+    
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
+    
+
+    // HTTP header `Accept`
+    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"artikcloud_oauth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    
+    
+    
+
+    
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"ACNormalizedMessagesEnvelope*"
+                           completionBlock: ^(id data, NSError *error) {
+                               handler((ACNormalizedMessagesEnvelope*)data, error);
+                           }
+          ];
+}
+
+///
+/// Get Normalized Message Aggregates
+/// Get Aggregates on normalized messages.
+///  @param sdid Source device ID of the messages being searched. 
+///
+///  @param field Message field being queried for aggregates. 
+///
+///  @param startDate Timestamp of earliest message (in milliseconds since epoch). 
+///
+///  @param endDate Timestamp of latest message (in milliseconds since epoch). 
+///
+///  @returns ACAggregatesResponse*
+///
+-(NSNumber*) getMessageAggregatesWithSdid: (NSString*) sdid
+    field: (NSString*) field
+    startDate: (NSNumber*) startDate
+    endDate: (NSNumber*) endDate
+    completionHandler: (void (^)(ACAggregatesResponse* output, NSError* error)) handler {
+
+    
+    // verify the required parameter 'sdid' is set
+    if (sdid == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `sdid` when calling `getMessageAggregates`"];
+    }
+    
+    // verify the required parameter 'field' is set
+    if (field == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `field` when calling `getMessageAggregates`"];
+    }
+    
+    // verify the required parameter 'startDate' is set
+    if (startDate == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `startDate` when calling `getMessageAggregates`"];
+    }
+    
+    // verify the required parameter 'endDate' is set
+    if (endDate == nil) {
+        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `endDate` when calling `getMessageAggregates`"];
+    }
+    
+
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/messages/analytics/aggregates"];
+
+    // remove format in URL if needed
+    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
+        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
+    }
+
+    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
+    
+
+    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
+    if (sdid != nil) {
+        
+        queryParams[@"sdid"] = sdid;
+    }
+    if (field != nil) {
+        
+        queryParams[@"field"] = field;
+    }
+    if (startDate != nil) {
+        
+        queryParams[@"startDate"] = startDate;
+    }
+    if (endDate != nil) {
+        
+        queryParams[@"endDate"] = endDate;
+    }
+    
+    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
+
+    
+
+    // HTTP header `Accept`
+    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
+    if ([headerParams[@"Accept"] length] == 0) {
+        [headerParams removeObjectForKey:@"Accept"];
+    }
+
+    // response content type
+    NSString *responseContentType;
+    if ([headerParams objectForKey:@"Accept"]) {
+        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
+    }
+    else {
+        responseContentType = @"";
+    }
+
+    // request content type
+    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
+
+    // Authentication setting
+    NSArray *authSettings = @[@"artikcloud_oauth"];
+
+    id bodyParam = nil;
+    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
+    
+    
+    
+
+    
+    return [self.apiClient requestWithPath: resourcePath
+                                    method: @"GET"
+                                pathParams: pathParams
+                               queryParams: queryParams
+                                formParams: formParams
+                                     files: localVarFiles
+                                      body: bodyParam
+                              headerParams: headerParams
+                              authSettings: authSettings
+                        requestContentType: requestContentType
+                       responseContentType: responseContentType
+                              responseType: @"ACAggregatesResponse*"
+                           completionBlock: ^(id data, NSError *error) {
+                               handler((ACAggregatesResponse*)data, error);
+                           }
+          ];
+}
+
+///
 /// Get Normalized Messages
 /// Get the messages normalized
-///  @param uid User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to.
+///  @param uid User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to. (optional)
 ///
-///  @param sdid Source device ID of the messages being searched.
+///  @param sdid Source device ID of the messages being searched. (optional)
 ///
-///  @param mid The SAMI message ID being searched.
+///  @param mid The SAMI message ID being searched. (optional)
 ///
-///  @param fieldPresence String representing a field from the specified device ID.
+///  @param fieldPresence String representing a field from the specified device ID. (optional)
 ///
-///  @param filter Filter.
+///  @param filter Filter. (optional)
 ///
-///  @param offset A string that represents the starting item, should be the value of 'next' field received in the last response. (required for pagination)
+///  @param offset A string that represents the starting item, should be the value of 'next' field received in the last response. (required for pagination) (optional)
 ///
-///  @param count count
+///  @param count count (optional)
 ///
-///  @param startDate startDate
+///  @param startDate startDate (optional)
 ///
-///  @param endDate endDate
+///  @param endDate endDate (optional)
 ///
-///  @param order Desired sort order: 'asc' or 'desc'
+///  @param order Desired sort order: 'asc' or 'desc' (optional)
 ///
 ///  @returns ACNormalizedMessagesEnvelope*
 ///
@@ -219,7 +671,7 @@ static ACMessagesApi* singletonAPI = nil;
 ///
 /// Send Message Action
 /// Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
-///  @param data Message or Action object that is passed in the body
+///  @param data Message or Action object that is passed in the body 
 ///
 ///  @returns ACMessageIDEnvelope*
 ///
@@ -292,458 +744,6 @@ static ACMessagesApi* singletonAPI = nil;
                               responseType: @"ACMessageIDEnvelope*"
                            completionBlock: ^(id data, NSError *error) {
                                handler((ACMessageIDEnvelope*)data, error);
-                           }
-          ];
-}
-
-///
-/// Get Normalized Message Aggregates
-/// Get Aggregates on normalized messages.
-///  @param sdid Source device ID of the messages being searched.
-///
-///  @param field Message field being queried for aggregates.
-///
-///  @param startDate Timestamp of earliest message (in milliseconds since epoch).
-///
-///  @param endDate Timestamp of latest message (in milliseconds since epoch).
-///
-///  @returns ACAggregatesResponse*
-///
--(NSNumber*) getMessageAggregatesWithSdid: (NSString*) sdid
-    field: (NSString*) field
-    startDate: (NSNumber*) startDate
-    endDate: (NSNumber*) endDate
-    completionHandler: (void (^)(ACAggregatesResponse* output, NSError* error)) handler {
-
-    
-    // verify the required parameter 'sdid' is set
-    if (sdid == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `sdid` when calling `getMessageAggregates`"];
-    }
-    
-    // verify the required parameter 'field' is set
-    if (field == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `field` when calling `getMessageAggregates`"];
-    }
-    
-    // verify the required parameter 'startDate' is set
-    if (startDate == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `startDate` when calling `getMessageAggregates`"];
-    }
-    
-    // verify the required parameter 'endDate' is set
-    if (endDate == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `endDate` when calling `getMessageAggregates`"];
-    }
-    
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/messages/analytics/aggregates"];
-
-    // remove format in URL if needed
-    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
-        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
-    }
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (sdid != nil) {
-        
-        queryParams[@"sdid"] = sdid;
-    }
-    if (field != nil) {
-        
-        queryParams[@"field"] = field;
-    }
-    if (startDate != nil) {
-        
-        queryParams[@"startDate"] = startDate;
-    }
-    if (endDate != nil) {
-        
-        queryParams[@"endDate"] = endDate;
-    }
-    
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
-
-    
-
-    // HTTP header `Accept`
-    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
-    if ([headerParams[@"Accept"] length] == 0) {
-        [headerParams removeObjectForKey:@"Accept"];
-    }
-
-    // response content type
-    NSString *responseContentType;
-    if ([headerParams objectForKey:@"Accept"]) {
-        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
-    }
-    else {
-        responseContentType = @"";
-    }
-
-    // request content type
-    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"artikcloud_oauth"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    
-    
-    
-
-    
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"ACAggregatesResponse*"
-                           completionBlock: ^(id data, NSError *error) {
-                               handler((ACAggregatesResponse*)data, error);
-                           }
-          ];
-}
-
-///
-/// Get Histogram aggregates
-/// Get Histogram on normalized messages.
-///  @param startDate Timestamp of earliest message (in milliseconds since epoch).
-///
-///  @param endDate Timestamp of latest message (in milliseconds since epoch).
-///
-///  @param sdid Source device ID of the messages being searched.
-///
-///  @param field Message field being queried for building histogram.
-///
-///  @param interval Interval of time for building histogram blocks. (Valid values: minute, hour, day, month, year)
-///
-///  @returns ACAggregatesHistogramResponse*
-///
--(NSNumber*) getAggregatesHistogramWithStartDate: (NSNumber*) startDate
-    endDate: (NSNumber*) endDate
-    sdid: (NSString*) sdid
-    field: (NSString*) field
-    interval: (NSString*) interval
-    completionHandler: (void (^)(ACAggregatesHistogramResponse* output, NSError* error)) handler {
-
-    
-    // verify the required parameter 'startDate' is set
-    if (startDate == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `startDate` when calling `getAggregatesHistogram`"];
-    }
-    
-    // verify the required parameter 'endDate' is set
-    if (endDate == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `endDate` when calling `getAggregatesHistogram`"];
-    }
-    
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/messages/analytics/histogram"];
-
-    // remove format in URL if needed
-    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
-        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
-    }
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (startDate != nil) {
-        
-        queryParams[@"startDate"] = startDate;
-    }
-    if (endDate != nil) {
-        
-        queryParams[@"endDate"] = endDate;
-    }
-    if (sdid != nil) {
-        
-        queryParams[@"sdid"] = sdid;
-    }
-    if (field != nil) {
-        
-        queryParams[@"field"] = field;
-    }
-    if (interval != nil) {
-        
-        queryParams[@"interval"] = interval;
-    }
-    
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
-
-    
-
-    // HTTP header `Accept`
-    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
-    if ([headerParams[@"Accept"] length] == 0) {
-        [headerParams removeObjectForKey:@"Accept"];
-    }
-
-    // response content type
-    NSString *responseContentType;
-    if ([headerParams objectForKey:@"Accept"]) {
-        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
-    }
-    else {
-        responseContentType = @"";
-    }
-
-    // request content type
-    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"artikcloud_oauth"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    
-    
-    
-
-    
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"ACAggregatesHistogramResponse*"
-                           completionBlock: ^(id data, NSError *error) {
-                               handler((ACAggregatesHistogramResponse*)data, error);
-                           }
-          ];
-}
-
-///
-/// Get Last Normalized Message
-/// Get last messages normalized.
-///  @param count Number of items to return per query.
-///
-///  @param sdids Comma separated list of source device IDs (minimum: 1).
-///
-///  @param fieldPresence String representing a field from the specified device ID.
-///
-///  @returns ACNormalizedMessagesEnvelope*
-///
--(NSNumber*) getLastNormalizedMessagesWithCount: (NSNumber*) count
-    sdids: (NSString*) sdids
-    fieldPresence: (NSString*) fieldPresence
-    completionHandler: (void (^)(ACNormalizedMessagesEnvelope* output, NSError* error)) handler {
-
-    
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/messages/last"];
-
-    // remove format in URL if needed
-    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
-        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
-    }
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (count != nil) {
-        
-        queryParams[@"count"] = count;
-    }
-    if (sdids != nil) {
-        
-        queryParams[@"sdids"] = sdids;
-    }
-    if (fieldPresence != nil) {
-        
-        queryParams[@"fieldPresence"] = fieldPresence;
-    }
-    
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
-
-    
-
-    // HTTP header `Accept`
-    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
-    if ([headerParams[@"Accept"] length] == 0) {
-        [headerParams removeObjectForKey:@"Accept"];
-    }
-
-    // response content type
-    NSString *responseContentType;
-    if ([headerParams objectForKey:@"Accept"]) {
-        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
-    }
-    else {
-        responseContentType = @"";
-    }
-
-    // request content type
-    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"artikcloud_oauth"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    
-    
-    
-
-    
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"ACNormalizedMessagesEnvelope*"
-                           completionBlock: ^(id data, NSError *error) {
-                               handler((ACNormalizedMessagesEnvelope*)data, error);
-                           }
-          ];
-}
-
-///
-/// Get normalized message presence
-/// Get normalized message presence.
-///  @param startDate startDate
-///
-///  @param endDate endDate
-///
-///  @param interval String representing grouping interval. One of: 'minute' (1 hour limit), 'hour' (1 day limit), 'day' (31 days limit), 'month' (1 year limit), or 'year' (10 years limit).
-///
-///  @param sdid Source device ID of the messages being searched.
-///
-///  @param fieldPresence String representing a field from the specified device ID.
-///
-///  @returns ACFieldPresenceEnvelope*
-///
--(NSNumber*) getFieldPresenceWithStartDate: (NSNumber*) startDate
-    endDate: (NSNumber*) endDate
-    interval: (NSString*) interval
-    sdid: (NSString*) sdid
-    fieldPresence: (NSString*) fieldPresence
-    completionHandler: (void (^)(ACFieldPresenceEnvelope* output, NSError* error)) handler {
-
-    
-    // verify the required parameter 'startDate' is set
-    if (startDate == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `startDate` when calling `getFieldPresence`"];
-    }
-    
-    // verify the required parameter 'endDate' is set
-    if (endDate == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `endDate` when calling `getFieldPresence`"];
-    }
-    
-    // verify the required parameter 'interval' is set
-    if (interval == nil) {
-        [NSException raise:@"Invalid parameter" format:@"Missing the required parameter `interval` when calling `getFieldPresence`"];
-    }
-    
-
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/messages/presence"];
-
-    // remove format in URL if needed
-    if ([resourcePath rangeOfString:@".{format}"].location != NSNotFound) {
-        [resourcePath replaceCharactersInRange: [resourcePath rangeOfString:@".{format}"] withString:@".json"];
-    }
-
-    NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    
-
-    NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (sdid != nil) {
-        
-        queryParams[@"sdid"] = sdid;
-    }
-    if (fieldPresence != nil) {
-        
-        queryParams[@"fieldPresence"] = fieldPresence;
-    }
-    if (startDate != nil) {
-        
-        queryParams[@"startDate"] = startDate;
-    }
-    if (endDate != nil) {
-        
-        queryParams[@"endDate"] = endDate;
-    }
-    if (interval != nil) {
-        
-        queryParams[@"interval"] = interval;
-    }
-    
-    NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.defaultHeaders];
-
-    
-
-    // HTTP header `Accept`
-    headerParams[@"Accept"] = [ACApiClient selectHeaderAccept:@[@"application/json"]];
-    if ([headerParams[@"Accept"] length] == 0) {
-        [headerParams removeObjectForKey:@"Accept"];
-    }
-
-    // response content type
-    NSString *responseContentType;
-    if ([headerParams objectForKey:@"Accept"]) {
-        responseContentType = [headerParams[@"Accept"] componentsSeparatedByString:@", "][0];
-    }
-    else {
-        responseContentType = @"";
-    }
-
-    // request content type
-    NSString *requestContentType = [ACApiClient selectHeaderContentType:@[]];
-
-    // Authentication setting
-    NSArray *authSettings = @[@"artikcloud_oauth"];
-
-    id bodyParam = nil;
-    NSMutableDictionary *formParams = [[NSMutableDictionary alloc] init];
-    NSMutableDictionary *localVarFiles = [[NSMutableDictionary alloc] init];
-    
-    
-    
-
-    
-    return [self.apiClient requestWithPath: resourcePath
-                                    method: @"GET"
-                                pathParams: pathParams
-                               queryParams: queryParams
-                                formParams: formParams
-                                     files: localVarFiles
-                                      body: bodyParam
-                              headerParams: headerParams
-                              authSettings: authSettings
-                        requestContentType: requestContentType
-                       responseContentType: responseContentType
-                              responseType: @"ACFieldPresenceEnvelope*"
-                           completionBlock: ^(id data, NSError *error) {
-                               handler((ACFieldPresenceEnvelope*)data, error);
                            }
           ];
 }

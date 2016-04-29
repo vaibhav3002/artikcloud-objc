@@ -75,7 +75,7 @@ static ACRegistrationsApi* singletonAPI = nil;
 ///
 /// Confirm User
 /// This call updates the registration request issued earlier by associating it with an authenticated user and captures all additional information required to add a new device.
-///  @param registrationInfo Device Registration information.
+///  @param registrationInfo Device Registration information. 
 ///
 ///  @returns ACDeviceRegConfirmUserResponseEnvelope*
 ///
@@ -155,7 +155,7 @@ static ACRegistrationsApi* singletonAPI = nil;
 ///
 /// Get Request Status For User
 /// This call checks the status of the request so users can poll and know when registration is complete.
-///  @param requestId Request ID.
+///  @param requestId Request ID. 
 ///
 ///  @returns ACDeviceRegStatusResponseEnvelope*
 ///
@@ -238,7 +238,7 @@ static ACRegistrationsApi* singletonAPI = nil;
 ///
 /// Unregister Device
 /// This call clears any associations from the secure device registration.
-///  @param deviceId Device ID.
+///  @param deviceId Device ID. 
 ///
 ///  @returns ACUnregisterDeviceResponseEnvelope*
 ///

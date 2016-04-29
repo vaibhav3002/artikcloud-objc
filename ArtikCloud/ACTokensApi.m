@@ -74,7 +74,7 @@ static ACTokensApi* singletonAPI = nil;
 ///
 /// Check Token
 /// Check Token
-///  @param tokenInfo Token object to be checked
+///  @param tokenInfo Token object to be checked 
 ///
 ///  @returns ACCheckTokenResponse*
 ///
@@ -154,9 +154,9 @@ static ACTokensApi* singletonAPI = nil;
 ///
 /// Refresh Token
 /// Refresh Token
-///  @param grantType Grant Type.
+///  @param grantType Grant Type. 
 ///
-///  @param refreshToken Refresh Token.
+///  @param refreshToken Refresh Token. 
 ///
 ///  @returns ACRefreshTokenResponse*
 ///

@@ -36,6 +36,32 @@
 
 ///
 ///
+/// Delete Device
+/// Deletes a device
+///
+/// @param deviceId deviceId
+/// 
+///
+/// @return ACDeviceEnvelope*
+-(NSNumber*) deleteDeviceWithDeviceId: (NSString*) deviceId
+    completionHandler: (void (^)(ACDeviceEnvelope* output, NSError* error)) handler;
+
+
+///
+///
+/// Delete Device Token
+/// Deletes a device's token
+///
+/// @param deviceId deviceId
+/// 
+///
+/// @return ACDeviceTokenEnvelope*
+-(NSNumber*) deleteDeviceTokenWithDeviceId: (NSString*) deviceId
+    completionHandler: (void (^)(ACDeviceTokenEnvelope* output, NSError* error)) handler;
+
+
+///
+///
 /// Get Device
 /// Retrieves a device
 ///
@@ -45,6 +71,19 @@
 /// @return ACDeviceEnvelope*
 -(NSNumber*) getDeviceWithDeviceId: (NSString*) deviceId
     completionHandler: (void (^)(ACDeviceEnvelope* output, NSError* error)) handler;
+
+
+///
+///
+/// Get Device Token
+/// Retrieves a device's token
+///
+/// @param deviceId deviceId
+/// 
+///
+/// @return ACDeviceTokenEnvelope*
+-(NSNumber*) getDeviceTokenWithDeviceId: (NSString*) deviceId
+    completionHandler: (void (^)(ACDeviceTokenEnvelope* output, NSError* error)) handler;
 
 
 ///
@@ -64,32 +103,6 @@
 
 ///
 ///
-/// Delete Device
-/// Deletes a device
-///
-/// @param deviceId deviceId
-/// 
-///
-/// @return ACDeviceEnvelope*
--(NSNumber*) deleteDeviceWithDeviceId: (NSString*) deviceId
-    completionHandler: (void (^)(ACDeviceEnvelope* output, NSError* error)) handler;
-
-
-///
-///
-/// Get Device Token
-/// Retrieves a device's token
-///
-/// @param deviceId deviceId
-/// 
-///
-/// @return ACDeviceTokenEnvelope*
--(NSNumber*) getDeviceTokenWithDeviceId: (NSString*) deviceId
-    completionHandler: (void (^)(ACDeviceTokenEnvelope* output, NSError* error)) handler;
-
-
-///
-///
 /// Update Device Token
 /// Updates a device's token
 ///
@@ -98,19 +111,6 @@
 ///
 /// @return ACDeviceTokenEnvelope*
 -(NSNumber*) updateDeviceTokenWithDeviceId: (NSString*) deviceId
-    completionHandler: (void (^)(ACDeviceTokenEnvelope* output, NSError* error)) handler;
-
-
-///
-///
-/// Delete Device Token
-/// Deletes a device's token
-///
-/// @param deviceId deviceId
-/// 
-///
-/// @return ACDeviceTokenEnvelope*
--(NSNumber*) deleteDeviceTokenWithDeviceId: (NSString*) deviceId
     completionHandler: (void (^)(ACDeviceTokenEnvelope* output, NSError* error)) handler;
 
 
