@@ -8,8 +8,9 @@
 
 #import <XCTest/XCTest.h>
 #import <ArtikCloud/ACTokensApi.h>
+#import "ArtikCloudTests.h"
 
-@interface TokensApiTests : XCTestCase
+@interface TokensApiTests : ArtikCloudTests
 @property (nonatomic) ACApiClient *apiClient;
 @property (nonatomic) ACTokensApi *api;
 @property (nonatomic, readonly) NSString *accessToken;
@@ -20,7 +21,7 @@
 @synthesize accessToken, refreshToken;
 
 - (NSString *)accessToken {
-    return @"51e73cc3ad88418dbf921de4dceacf7e";
+    return [self getProperty:@"user1.token"] ;
 }
 
 - (NSString *)refreshToken {
@@ -31,9 +32,8 @@
     [super setUp];
 
     [ACConfiguration sharedConfig].accessToken = self.accessToken;
-    self.apiClient = [[ACApiClient alloc] initWithBaseURL:[NSURL URLWithString:@"https://accounts.artik.cloud" ]];
 
-    self.api = [[ACTokensApi alloc] initWithApiClient:self.apiClient];
+    self.api = [[ACTokensApi alloc] init];
 }
 
 - (void)tearDown {

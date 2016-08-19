@@ -8,8 +8,9 @@
 
 #import <XCTest/XCTest.h>
 #import <ArtikCloud/ACMessagesApi.h>
+#import "ArtikCloudTests.h"
 
-@interface MessagesApiTests : XCTestCase
+@interface MessagesApiTests : ArtikCloudTests
 @property (nonatomic) ACMessagesApi *api;
 @property (nonatomic, readonly) NSString *sdid;
 @property (nonatomic, readonly) NSString *deviceToken;
@@ -19,11 +20,11 @@
 @synthesize sdid, deviceToken;
 
 - (NSString *)sdid {
-    return @"19da42ee01414722a6ad1224097c38d4";
+    return [self getProperty:@"device1.id"];
 }
 
 - (NSString *)deviceToken {
-    return @"dc43d12e2b59495daf94631e6ddfe3e8";
+    return [self getProperty:@"device1.token"];
 }
 
 - (void)setUp {

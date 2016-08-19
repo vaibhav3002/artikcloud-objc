@@ -47,6 +47,10 @@
     [super tearDown];
 }
 
+- (NSString *)getProperty:(NSString *)key {
+    return [self.properties objectForKey:key];
+}
+
 - (void)testProperty {
     NSString * userId = [self.properties objectForKey:@"user1.id"];
     XCTAssertTrue([userId isEqualToString:@"04ddbd35d57d4d7b8f07f219c44457b2"]);

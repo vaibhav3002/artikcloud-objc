@@ -22,13 +22,14 @@
 @synthesize aid;
 
 - (NSString *)aid {
-    return @"b6951bf387b84f63b38911ae35d65e28";
+    return [self getProperty:@"user1.aid"];
 }
 
 - (void)setUp {
     [super setUp];
 
-    [ACConfiguration sharedConfig].accessToken = @"fad4f2e4c7ed48548692e8799f1d7acd";
+    [ACConfiguration sharedConfig].accessToken = [self getProperty:@"user1.token"];
+
     self.api = [[ACUsersApi alloc] init];
 
     // Get the User ID for the tests
@@ -69,9 +70,9 @@
         XCTAssertNotNil(output.data._id);
         self.userId = output.data._id;
 
-        XCTAssertTrue([output.data.name isEqualToString:@"maneesh"], @"Names are not equal %@, %@", output.data.name, @"maneesh");
-        XCTAssertTrue([output.data.fullName isEqualToString:@"Maneesh Sahu"], @"Full Names are not equal %@, %@", output.data.fullName, @"Maneesh Sahu");
-        XCTAssertTrue([output.data.email isEqualToString:@"maneesh.sahu@ssi.samsung.com"], @"Emails are not equal %@, %@", output.data.email, @"maneesh.sahu@ssi.samsung.com");
+        XCTAssertTrue([output.data.name isEqualToString:[self getProperty:@"user1.name"]], @"Names are not equal %@, %@", output.data.name, [self getProperty:@"user1.name"]);
+        XCTAssertTrue([output.data.fullName isEqualToString:[self getProperty:@"user1.fullname"]], @"Full Names are not equal %@, %@", output.data.fullName, [self getProperty:@"user1.fullname"]);
+        XCTAssertTrue([output.data.email isEqualToString:[self getProperty:@"user1.email"]], @"Emails are not equal %@, %@", output.data.email, [self getProperty:@"user1.email"]);
 
         [expectation fulfill];
     }];

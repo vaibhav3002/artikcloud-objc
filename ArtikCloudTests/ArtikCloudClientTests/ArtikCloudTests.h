@@ -12,6 +12,8 @@
 @interface ArtikCloudTests : XCTestCase
 @property (nonatomic) NSDictionary *properties;
 
+-(NSString *) getProperty: (NSString*) key;
+
 @end
 
 #endif /* ArtikCloudTests_h */
