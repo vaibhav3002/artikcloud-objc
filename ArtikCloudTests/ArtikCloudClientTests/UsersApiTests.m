@@ -8,8 +8,9 @@
 
 #import <XCTest/XCTest.h>
 #import <ArtikCloud/ACUsersApi.h>
+#import "ArtikCloudTests.h"
 
-@interface UsersApiTests : XCTestCase
+@interface UsersApiTests : ArtikCloudTests
 
 @property (nonatomic) ACUsersApi *api;
 @property (nonatomic, readonly) NSString *aid;

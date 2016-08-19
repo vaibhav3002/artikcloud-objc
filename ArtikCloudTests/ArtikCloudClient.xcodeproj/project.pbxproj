@@ -17,6 +17,8 @@
 		63B9D1CC1CAAE9EF0033D3D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63B9D1CB1CAAE9EF0033D3D8 /* Assets.xcassets */; };
 		63B9D1CF1CAAE9EF0033D3D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63B9D1CD1CAAE9EF0033D3D8 /* LaunchScreen.storyboard */; };
 		63B9D1DA1CAAE9EF0033D3D8 /* UsersApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B9D1D91CAAE9EF0033D3D8 /* UsersApiTests.m */; };
+		63DB29431D67A22C00C97A60 /* ArtikCloudTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB29421D67A22C00C97A60 /* ArtikCloudTests.m */; };
+		63DB29451D67A34D00C97A60 /* artik.properties in Resources */ = {isa = PBXBuildFile; fileRef = 63DB29441D67A34D00C97A60 /* artik.properties */; };
 		81E6D36031CE2B47BBB80C13 /* libPods-ArtikCloudClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE65360F77B07D24941E844 /* libPods-ArtikCloudClientTests.a */; };
 		BAF237FC11F1A8DA4E46D074 /* libPods-ArtikCloudClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 77193F8BCAA1FF48A945D144 /* libPods-ArtikCloudClient.a */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,9 @@
 		63B9D1D51CAAE9EF0033D3D8 /* ArtikCloudClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArtikCloudClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63B9D1D91CAAE9EF0033D3D8 /* UsersApiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UsersApiTests.m; sourceTree = "<group>"; };
 		63B9D1DB1CAAE9EF0033D3D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63DB29421D67A22C00C97A60 /* ArtikCloudTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtikCloudTests.m; sourceTree = "<group>"; };
+		63DB29441D67A34D00C97A60 /* artik.properties */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = artik.properties; sourceTree = "<group>"; };
+		63DB29481D67AAC600C97A60 /* ArtikCloudTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtikCloudTests.h; sourceTree = "<group>"; };
 		77193F8BCAA1FF48A945D144 /* libPods-ArtikCloudClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtikCloudClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4ED3C808D697B42EE825B13 /* Pods-ArtikCloudClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtikCloudClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtikCloudClient/Pods-ArtikCloudClient.debug.xcconfig"; sourceTree = "<group>"; };
 		DBBB7486910BA46D9A3FAC06 /* Pods-ArtikCloudClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtikCloudClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +144,9 @@
 				63B9D1DB1CAAE9EF0033D3D8 /* Info.plist */,
 				630D07B21CAC85B000A9223B /* MessagesApiTests.m */,
 				630D07B41CAC8C9B00A9223B /* TokensApiTests.m */,
+				63DB29421D67A22C00C97A60 /* ArtikCloudTests.m */,
+				63DB29441D67A34D00C97A60 /* artik.properties */,
+				63DB29481D67AAC600C97A60 /* ArtikCloudTests.h */,
 			);
 			path = ArtikCloudClientTests;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63DB29451D67A34D00C97A60 /* artik.properties in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +376,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				630D07B31CAC85B000A9223B /* MessagesApiTests.m in Sources */,
+				63DB29431D67A22C00C97A60 /* ArtikCloudTests.m in Sources */,
 				63B9D1DA1CAAE9EF0033D3D8 /* UsersApiTests.m in Sources */,
 				630D07B51CAC8C9B00A9223B /* TokensApiTests.m in Sources */,
 			);

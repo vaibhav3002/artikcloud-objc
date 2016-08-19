@@ -4,7 +4,7 @@
 #import "ACFieldPresenceEnvelope.h"
 #import "ACNormalizedMessagesEnvelope.h"
 #import "ACAggregatesResponse.h"
-#import "ACSnapshotsResponseEnvelope.h"
+#import "ACSnapshotResponses.h"
 #import "ACMessageAction.h"
 #import "ACMessageIDEnvelope.h"
 
@@ -503,11 +503,11 @@ NSInteger kACMessagesApiMissingParamErrorCode = 234513;
 ///
 ///  @param includeTimestamp Indicates whether to return timestamps of the last update for each field. (optional)
 ///
-///  @returns ACSnapshotsResponseEnvelope*
+///  @returns ACSnapshotResponses*
 ///
 -(NSNumber*) getMessageSnapshotsWithSdids: (NSString*) sdids
     includeTimestamp: (NSNumber*) includeTimestamp
-    completionHandler: (void (^)(ACSnapshotsResponseEnvelope* output, NSError* error)) handler {
+    completionHandler: (void (^)(ACSnapshotResponses* output, NSError* error)) handler {
     // verify the required parameter 'sdids' is set
     if (sdids == nil) {
         NSParameterAssert(sdids);
@@ -565,10 +565,10 @@ NSInteger kACMessagesApiMissingParamErrorCode = 234513;
                               authSettings: authSettings
                         requestContentType: requestContentType
                        responseContentType: responseContentType
-                              responseType: @"ACSnapshotsResponseEnvelope*"
+                              responseType: @"ACSnapshotResponses*"
                            completionBlock: ^(id data, NSError *error) {
                                 if(handler) {
-                                    handler((ACSnapshotsResponseEnvelope*)data, error);
+                                    handler((ACSnapshotResponses*)data, error);
                                 }
                            }
           ];

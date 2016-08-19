@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 ```objc
 -(NSNumber*) getMessageSnapshotsWithSdids: (NSString*) sdids
     includeTimestamp: (NSNumber*) includeTimestamp
-        completionHandler: (void (^)(ACSnapshotsResponseEnvelope* output, NSError* error)) handler;
+        completionHandler: (void (^)(ACSnapshotResponses* output, NSError* error)) handler;
 ```
 
 Get Message Snapshots
@@ -312,7 +312,7 @@ ACMessagesApi*apiInstance = [[ACMessagesApi alloc] init];
 // Get Message Snapshots
 [apiInstance getMessageSnapshotsWithSdids:sdids
               includeTimestamp:includeTimestamp
-          completionHandler: ^(ACSnapshotsResponseEnvelope* output, NSError* error) {
+          completionHandler: ^(ACSnapshotResponses* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ACSnapshotsResponseEnvelope***](ACSnapshotsResponseEnvelope.md)
+[**ACSnapshotResponses***](ACSnapshotResponses.md)
 
 ### Authorization
 

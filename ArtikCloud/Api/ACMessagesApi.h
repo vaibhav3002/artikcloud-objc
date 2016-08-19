@@ -3,7 +3,7 @@
 #import "ACFieldPresenceEnvelope.h"
 #import "ACNormalizedMessagesEnvelope.h"
 #import "ACAggregatesResponse.h"
-#import "ACSnapshotsResponseEnvelope.h"
+#import "ACSnapshotResponses.h"
 #import "ACMessageAction.h"
 #import "ACMessageIDEnvelope.h"
 #import "ACApi.h"
@@ -122,10 +122,10 @@ extern NSInteger kACMessagesApiMissingParamErrorCode;
 /// 
 ///  code:0 message:"success"
 ///
-/// @return ACSnapshotsResponseEnvelope*
+/// @return ACSnapshotResponses*
 -(NSNumber*) getMessageSnapshotsWithSdids: (NSString*) sdids
     includeTimestamp: (NSNumber*) includeTimestamp
-    completionHandler: (void (^)(ACSnapshotsResponseEnvelope* output, NSError* error)) handler;
+    completionHandler: (void (^)(ACSnapshotResponses* output, NSError* error)) handler;
 
 
 /// Get Normalized Messages

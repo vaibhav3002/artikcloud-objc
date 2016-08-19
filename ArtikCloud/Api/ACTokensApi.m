@@ -91,7 +91,7 @@ NSInteger kACTokensApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/checkToken"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/accounts/checkToken"];
 
     // remove format in URL if needed
     [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
@@ -175,7 +175,7 @@ NSInteger kACTokensApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/token"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/accounts/token"];
 
     // remove format in URL if needed
     [resourcePath replaceOccurrencesOfString:@".{format}" withString:@".json" options:0 range:NSMakeRange(0,resourcePath.length)];
