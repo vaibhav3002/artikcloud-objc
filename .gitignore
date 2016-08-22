@@ -52,3 +52,5 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
+Podfile.lock
+.dat203f.4ca
