@@ -4,7 +4,7 @@ All URIs are relative to *https://api.artik.cloud/v1.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAggregatesHistogram**](ACMessagesApi.md#getaggregateshistogram) | **GET** /messages/analytics/histogram | Get Histogram aggregates
+[**getAggregatesHistogram**](ACMessagesApi.md#getaggregateshistogram) | **GET** /messages/analytics/histogram | Get Normalized Message Histogram
 [**getFieldPresence**](ACMessagesApi.md#getfieldpresence) | **GET** /messages/presence | Get normalized message presence
 [**getLastNormalizedMessages**](ACMessagesApi.md#getlastnormalizedmessages) | **GET** /messages/last | Get Last Normalized Message
 [**getMessageAggregates**](ACMessagesApi.md#getmessageaggregates) | **GET** /messages/analytics/aggregates | Get Normalized Message Aggregates
@@ -23,7 +23,7 @@ Method | HTTP request | Description
         completionHandler: (void (^)(ACAggregatesHistogramResponse* output, NSError* error)) handler;
 ```
 
-Get Histogram aggregates
+Get Normalized Message Histogram
 
 Get Histogram on normalized messages.
 
@@ -43,7 +43,7 @@ NSString* interval = @"interval_example"; // Interval of time for building histo
 
 ACMessagesApi*apiInstance = [[ACMessagesApi alloc] init];
 
-// Get Histogram aggregates
+// Get Normalized Message Histogram
 [apiInstance getAggregatesHistogramWithStartDate:startDate
               endDate:endDate
               sdid:sdid
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 Send Message Action
 
-Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
+(Deprecated) Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
 
 ### Example 
 ```objc

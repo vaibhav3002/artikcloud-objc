@@ -37,7 +37,7 @@ extern NSInteger kACTokensApiMissingParamErrorCode;
 +(instancetype) sharedAPI;
 
 /// Check Token
-/// Check Token
+/// (Deprecated) Check Token. See tokenInfo
 ///
 /// @param tokenInfo Token object to be checked
 /// 

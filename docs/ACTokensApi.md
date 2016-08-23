@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Check Token
 
-Check Token
+(Deprecated) Check Token. See tokenInfo
 
 ### Example 
 ```objc
