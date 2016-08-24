@@ -13,18 +13,28 @@
 @interface MessagesApiTests : ArtikCloudTests
 @property (nonatomic) ACMessagesApi *api;
 @property (nonatomic, readonly) NSString *sdid;
+@property (nonatomic, readonly) NSString *ddid;
 @property (nonatomic, readonly) NSString *deviceToken;
+@property (nonatomic, readonly) NSString *deviceToken2;
 @end
 
 @implementation MessagesApiTests
-@synthesize sdid, deviceToken;
+@synthesize sdid, ddid, deviceToken, deviceToken2;
 
 - (NSString *)sdid {
     return [self getProperty:@"device1.id"];
 }
 
+- (NSString *)ddid {
+    return [self getProperty:@"device4.id"];
+}
+
 - (NSString *)deviceToken {
     return [self getProperty:@"device1.token"];
+}
+
+- (NSString *)deviceToken2 {
+    return [self getProperty:@"device4.token"];
 }
 
 - (void)setUp {
@@ -42,13 +52,12 @@
 - (void)testSendMessage {
     XCTestExpectation *expectation = [self expectationWithDescription:@"testSendMessage"];
 
-    ACMessageAction *message = [[ACMessageAction alloc] init];
+    ACMessage *message = [[ACMessage alloc] init];
     message.sdid = self.sdid;
-    message.type = @"message";
     message.ts = [[NSNumber alloc] initWithLong:[[NSDate date] timeIntervalSince1970] * 1000 ];
     message.data = @{ @"steps": @500 };
 
-    [self.api sendMessageActionWithData:message completionHandler:^(ACMessageIDEnvelope *output, NSError *error) {
+    [self.api sendMessageWithData:message completionHandler:^(ACMessageIDEnvelope *output, NSError *error) {
         if (error) {
             XCTFail(@"Error Sending Message %@", error);
         }
@@ -89,7 +98,47 @@
 
 
     [self waitForExpectationsWithTimeout:10.0 handler:nil];
+}
 
+- (void)testSendAction {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testSendAction"];
+    
+    [ACConfiguration sharedConfig].accessToken = self.deviceToken2;
+
+    
+    ACAction *action = [[ACAction alloc] init];
+    action.name = @"setVolume";
+    action.parameters = @{ @"volume": @5 };
+    
+    ACActionArray *actionArray = [[ACActionArray alloc] init];
+    actionArray.actions = (NSArray<ACAction>*) @[ action ];
+    
+    ACActions *actions = [[ACActions alloc] init];
+    actions.ddid = self.ddid;
+    actions.ts = [[NSNumber alloc] initWithLong:[[NSDate date] timeIntervalSince1970] * 1000 ];
+    actions.type = @"action";
+    actions.data = actionArray;
+    
+    [self.api sendActionsWithData:actions completionHandler:^(ACMessageIDEnvelope *output, NSError *error) {
+        if (error) {
+            XCTFail(@"Error Sending Actions %@", error);
+        }
+        
+        if (!output) {
+            XCTFail(@"MessageID Envelope was nil");
+        }
+        
+        NSString *messageId = output.data.mid;
+        XCTAssertNotNil(messageId, @"Message ID should not be null");
+        
+        // Sleep for 2 seconds, to get the normalized message
+        [NSThread sleepForTimeInterval:2.0f];
+        
+        [expectation fulfill];
+    }];
+    
+    
+    [self waitForExpectationsWithTimeout:10.0 handler:nil];
 }
 
 

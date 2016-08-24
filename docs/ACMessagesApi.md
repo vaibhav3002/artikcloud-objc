@@ -9,8 +9,10 @@ Method | HTTP request | Description
 [**getLastNormalizedMessages**](ACMessagesApi.md#getlastnormalizedmessages) | **GET** /messages/last | Get Last Normalized Message
 [**getMessageAggregates**](ACMessagesApi.md#getmessageaggregates) | **GET** /messages/analytics/aggregates | Get Normalized Message Aggregates
 [**getMessageSnapshots**](ACMessagesApi.md#getmessagesnapshots) | **GET** /messages/snapshots | Get Message Snapshots
+[**getNormalizedActions**](ACMessagesApi.md#getnormalizedactions) | **GET** /actions | Get Normalized Actions
 [**getNormalizedMessages**](ACMessagesApi.md#getnormalizedmessages) | **GET** /messages | Get Normalized Messages
-[**sendMessageAction**](ACMessagesApi.md#sendmessageaction) | **POST** /messages | Send Message Action
+[**sendActions**](ACMessagesApi.md#sendactions) | **POST** /actions | Send Actions
+[**sendMessage**](ACMessagesApi.md#sendmessage) | **POST** /messages | Send Message
 
 
 # **getAggregatesHistogram**
@@ -344,6 +346,89 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getNormalizedActions**
+```objc
+-(NSNumber*) getNormalizedActionsWithUid: (NSString*) uid
+    ddid: (NSString*) ddid
+    mid: (NSString*) mid
+    offset: (NSString*) offset
+    count: (NSNumber*) count
+    startDate: (NSNumber*) startDate
+    endDate: (NSNumber*) endDate
+    order: (NSString*) order
+        completionHandler: (void (^)(ACNormalizedActionsEnvelope* output, NSError* error)) handler;
+```
+
+Get Normalized Actions
+
+Get the actions normalized
+
+### Example 
+```objc
+ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: artikcloud_oauth)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSString* uid = @"uid_example"; // User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to. (optional)
+NSString* ddid = @"ddid_example"; // Destination device ID of the actions being searched. (optional)
+NSString* mid = @"mid_example"; // The message ID being searched. (optional)
+NSString* offset = @"offset_example"; // A string that represents the starting item, should be the value of 'next' field received in the last response. (required for pagination) (optional)
+NSNumber* count = @56; // count (optional)
+NSNumber* startDate = @789; // startDate (optional)
+NSNumber* endDate = @789; // endDate (optional)
+NSString* order = @"order_example"; // Desired sort order: 'asc' or 'desc' (optional)
+
+ACMessagesApi*apiInstance = [[ACMessagesApi alloc] init];
+
+// Get Normalized Actions
+[apiInstance getNormalizedActionsWithUid:uid
+              ddid:ddid
+              mid:mid
+              offset:offset
+              count:count
+              startDate:startDate
+              endDate:endDate
+              order:order
+          completionHandler: ^(ACNormalizedActionsEnvelope* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling ACMessagesApi->getNormalizedActions: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uid** | **NSString***| User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to. | [optional] 
+ **ddid** | **NSString***| Destination device ID of the actions being searched. | [optional] 
+ **mid** | **NSString***| The message ID being searched. | [optional] 
+ **offset** | **NSString***| A string that represents the starting item, should be the value of &#39;next&#39; field received in the last response. (required for pagination) | [optional] 
+ **count** | **NSNumber***| count | [optional] 
+ **startDate** | **NSNumber***| startDate | [optional] 
+ **endDate** | **NSNumber***| endDate | [optional] 
+ **order** | **NSString***| Desired sort order: &#39;asc&#39; or &#39;desc&#39; | [optional] 
+
+### Return type
+
+[**ACNormalizedActionsEnvelope***](ACNormalizedActionsEnvelope.md)
+
+### Authorization
+
+[artikcloud_oauth](../README.md#artikcloud_oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getNormalizedMessages**
 ```objc
 -(NSNumber*) getNormalizedMessagesWithUid: (NSString*) uid
@@ -373,7 +458,7 @@ ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
 
 NSString* uid = @"uid_example"; // User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to. (optional)
 NSString* sdid = @"sdid_example"; // Source device ID of the messages being searched. (optional)
-NSString* mid = @"mid_example"; // The SAMI message ID being searched. (optional)
+NSString* mid = @"mid_example"; // The message ID being searched. (optional)
 NSString* fieldPresence = @"fieldPresence_example"; // String representing a field from the specified device ID. (optional)
 NSString* filter = @"filter_example"; // Filter. (optional)
 NSString* offset = @"offset_example"; // A string that represents the starting item, should be the value of 'next' field received in the last response. (required for pagination) (optional)
@@ -411,7 +496,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uid** | **NSString***| User ID. If not specified, assume that of the current authenticated user. If specified, it must be that of a user for which the current authenticated user has read access to. | [optional] 
  **sdid** | **NSString***| Source device ID of the messages being searched. | [optional] 
- **mid** | **NSString***| The SAMI message ID being searched. | [optional] 
+ **mid** | **NSString***| The message ID being searched. | [optional] 
  **fieldPresence** | **NSString***| String representing a field from the specified device ID. | [optional] 
  **filter** | **NSString***| Filter. | [optional] 
  **offset** | **NSString***| A string that represents the starting item, should be the value of &#39;next&#39; field received in the last response. (required for pagination) | [optional] 
@@ -435,15 +520,15 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **sendMessageAction**
+# **sendActions**
 ```objc
--(NSNumber*) sendMessageActionWithData: (ACMessageAction*) data
+-(NSNumber*) sendActionsWithData: (ACActions*) data
         completionHandler: (void (^)(ACMessageIDEnvelope* output, NSError* error)) handler;
 ```
 
-Send Message Action
+Send Actions
 
-(Deprecated) Send a message or an Action:<br/><table><tr><th>Combination</th><th>Parameters</th><th>Description</th></tr><tr><td>Send Message</td><td>sdid, type=message</td><td>Send a message from a Source Device</td></tr><tr><td>Send Action</td><td>ddid, type=action</td><td>Send an action to a Destination Device</td></tr><tr><td>Common</td><td>data, ts, token</td><td>Parameters that can be used with the above combinations.</td></tr></table>
+Send Actions
 
 ### Example 
 ```objc
@@ -453,18 +538,18 @@ ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
 [apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
 
 
-ACMessageAction* data = [[ACMessageAction alloc] init]; // Message or Action object that is passed in the body
+ACActions* data = [[ACActions alloc] init]; // Actions that are passed in the body
 
 ACMessagesApi*apiInstance = [[ACMessagesApi alloc] init];
 
-// Send Message Action
-[apiInstance sendMessageActionWithData:data
+// Send Actions
+[apiInstance sendActionsWithData:data
           completionHandler: ^(ACMessageIDEnvelope* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
                         }
                         if (error) {
-                            NSLog(@"Error calling ACMessagesApi->sendMessageAction: %@", error);
+                            NSLog(@"Error calling ACMessagesApi->sendActions: %@", error);
                         }
                     }];
 ```
@@ -473,7 +558,62 @@ ACMessagesApi*apiInstance = [[ACMessagesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **data** | [**ACMessageAction***](ACMessageAction*.md)| Message or Action object that is passed in the body | 
+ **data** | [**ACActions***](ACActions*.md)| Actions that are passed in the body | 
+
+### Return type
+
+[**ACMessageIDEnvelope***](ACMessageIDEnvelope.md)
+
+### Authorization
+
+[artikcloud_oauth](../README.md#artikcloud_oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **sendMessage**
+```objc
+-(NSNumber*) sendMessageWithData: (ACMessage*) data
+        completionHandler: (void (^)(ACMessageIDEnvelope* output, NSError* error)) handler;
+```
+
+Send Message
+
+Send a message
+
+### Example 
+```objc
+ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: artikcloud_oauth)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+ACMessage* data = [[ACMessage alloc] init]; // Message object that is passed in the body
+
+ACMessagesApi*apiInstance = [[ACMessagesApi alloc] init];
+
+// Send Message
+[apiInstance sendMessageWithData:data
+          completionHandler: ^(ACMessageIDEnvelope* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling ACMessagesApi->sendMessage: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **data** | [**ACMessage***](ACMessage*.md)| Message object that is passed in the body | 
 
 ### Return type
 

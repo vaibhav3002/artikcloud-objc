@@ -2,6 +2,7 @@
 #import "ACTokenRequest.h"
 #import "ACCheckTokenResponse.h"
 #import "ACRefreshTokenResponse.h"
+#import "ACTokenInfoSuccessResponse.h"
 #import "ACApi.h"
 
 /**
@@ -60,6 +61,17 @@ extern NSInteger kACTokensApiMissingParamErrorCode;
 -(NSNumber*) refreshTokenWithGrantType: (NSString*) grantType
     refreshToken: (NSString*) refreshToken
     completionHandler: (void (^)(ACRefreshTokenResponse* output, NSError* error)) handler;
+
+
+/// Token Info
+/// Returns the Token Information
+///
+/// 
+///  code:0 message:"success"
+///
+/// @return ACTokenInfoSuccessResponse*
+-(NSNumber*) tokenInfoWithCompletionHandler: 
+    (void (^)(ACTokenInfoSuccessResponse* output, NSError* error)) handler;
 
 
 

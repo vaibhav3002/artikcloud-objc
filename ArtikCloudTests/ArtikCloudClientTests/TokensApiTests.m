@@ -40,23 +40,20 @@
     [super tearDown];
 }
 
-- (void)testCheckToken {
-    XCTestExpectation *expectation = [self expectationWithDescription:@"testCheckToken"];
-
-    ACTokenRequest *tokenIn = [[ACTokenRequest alloc] init];
-    tokenIn.token = self.accessToken;
-
-    [self.api checkTokenWithTokenInfo:tokenIn completionHandler:^(ACCheckTokenResponse *output, NSError *error) {
+- (void)testTokenInfo {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testTokenInfo"];
+    
+    [self.api tokenInfoWithCompletionHandler:^(ACTokenInfoSuccessResponse *output, NSError *error) {
         if (error) {
             XCTFail(@"Error Checking Token %@", error);
         }
-
+        
         if (!output) {
             XCTFail(@"Check Token Response  was nil");
         }
-
-        XCTAssertEqualObjects(@"Valid token", output.data.message);
-
+        
+        XCTAssertNotNil(output.data.expiresIn);
+        
         [expectation fulfill];
     }];
 
