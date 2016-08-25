@@ -27,7 +27,7 @@ To specify a particular commit, append `, :commit => '11aa22'`
 Put the SDK under your project folder (e.g. /path/to/objc_project/Vendor/ArtikCloud) and then add the following to the Podfile:
 
 ```ruby
-pod 'ArtikCloudSwift', :path => 'Vendor/ArtikCloudSwift'
+pod 'ArtikCloud', :path => 'Vendor/ArtikCloud'
 ```
 
 ### Usage
