@@ -1,9 +1,9 @@
 ARTIK Cloud Objective-C SDK
 ==========================
 
-[![Build Status](https://travis-ci.org/artikcloud/artikcloud-objc.svg?branch=master)](https://travis-ci.org/artikcloud/artikcloud-objc) [![Pod version](https://badge.fury.io/co/ArtikCloud.svg)](https://badge.fury.io/co/ArtikCloud)
+[![Pod version](https://badge.fury.io/co/ArtikCloud.svg)](https://badge.fury.io/co/ArtikCloud)
 
-This SDK helps you connect your iOS or OS X applications to Samsung ARTIK Cloud. It exposes a number of methods to easily execute REST API calls to ARTIK Cloud.
+This SDK helps you connect your iOS or OS X applications to ARTIK Cloud. It exposes a number of methods to easily execute REST API calls to ARTIK Cloud.
 
 ## Requirements
 
