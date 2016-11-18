@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**getAvailableManifestVersions**](ACDeviceTypesApi.md#getavailablemanifestversions) | **GET** /devicetypes/{deviceTypeId}/availablemanifestversions | Get Available Manifest Versions
 [**getDeviceType**](ACDeviceTypesApi.md#getdevicetype) | **GET** /devicetypes/{deviceTypeId} | Get Device Type
 [**getDeviceTypes**](ACDeviceTypesApi.md#getdevicetypes) | **GET** /devicetypes | Get Device Types
+[**getDeviceTypesByApplication**](ACDeviceTypesApi.md#getdevicetypesbyapplication) | **GET** /applications/{appId}/devicetypes | Get Device Types by Application
 [**getLatestManifestProperties**](ACDeviceTypesApi.md#getlatestmanifestproperties) | **GET** /devicetypes/{deviceTypeId}/manifests/latest/properties | Get Latest Manifest Properties
 [**getManifestProperties**](ACDeviceTypesApi.md#getmanifestproperties) | **GET** /devicetypes/{deviceTypeId}/manifests/{version}/properties | Get manifest properties
 
@@ -172,6 +173,73 @@ Name | Type | Description  | Notes
  **offset** | **NSNumber***| Offset for pagination. | [optional] 
  **count** | **NSNumber***| Desired count of items in the result set | [optional] 
  **tags** | **NSString***| Elements tagged with the list of tags. (comma separated) | [optional] 
+
+### Return type
+
+[**ACDeviceTypesEnvelope***](ACDeviceTypesEnvelope.md)
+
+### Authorization
+
+[artikcloud_oauth](../README.md#artikcloud_oauth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getDeviceTypesByApplication**
+```objc
+-(NSNumber*) getDeviceTypesByApplicationWithAppId: (NSString*) appId
+    productInfo: (NSNumber*) productInfo
+    count: (NSNumber*) count
+    offset: (NSNumber*) offset
+        completionHandler: (void (^)(ACDeviceTypesEnvelope* output, NSError* error)) handler;
+```
+
+Get Device Types by Application
+
+Get Device Types by Application
+
+### Example 
+```objc
+ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: artikcloud_oauth)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+NSString* appId = @"appId_example"; // Application ID.
+NSNumber* productInfo = @true; // Flag to include the associated ProductInfo if present (optional)
+NSNumber* count = @56; // Desired count of items in the result set. (optional)
+NSNumber* offset = @56; // Offset for pagination. (optional)
+
+ACDeviceTypesApi*apiInstance = [[ACDeviceTypesApi alloc] init];
+
+// Get Device Types by Application
+[apiInstance getDeviceTypesByApplicationWithAppId:appId
+              productInfo:productInfo
+              count:count
+              offset:offset
+          completionHandler: ^(ACDeviceTypesEnvelope* output, NSError* error) {
+                        if (output) {
+                            NSLog(@"%@", output);
+                        }
+                        if (error) {
+                            NSLog(@"Error calling ACDeviceTypesApi->getDeviceTypesByApplication: %@", error);
+                        }
+                    }];
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appId** | **NSString***| Application ID. | 
+ **productInfo** | **NSNumber***| Flag to include the associated ProductInfo if present | [optional] 
+ **count** | **NSNumber***| Desired count of items in the result set. | [optional] 
+ **offset** | **NSNumber***| Offset for pagination. | [optional] 
 
 ### Return type
 

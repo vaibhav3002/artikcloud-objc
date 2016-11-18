@@ -79,6 +79,24 @@ extern NSInteger kACDeviceTypesApiMissingParamErrorCode;
     completionHandler: (void (^)(ACDeviceTypesEnvelope* output, NSError* error)) handler;
 
 
+/// Get Device Types by Application
+/// Get Device Types by Application
+///
+/// @param appId Application ID.
+/// @param productInfo Flag to include the associated ProductInfo if present (optional)
+/// @param count Desired count of items in the result set. (optional)
+/// @param offset Offset for pagination. (optional)
+/// 
+///  code:0 message:"success"
+///
+/// @return ACDeviceTypesEnvelope*
+-(NSNumber*) getDeviceTypesByApplicationWithAppId: (NSString*) appId
+    productInfo: (NSNumber*) productInfo
+    count: (NSNumber*) count
+    offset: (NSNumber*) offset
+    completionHandler: (void (^)(ACDeviceTypesEnvelope* output, NSError* error)) handler;
+
+
 /// Get Latest Manifest Properties
 /// Get a Device Type's manifest properties for the latest version.
 ///
