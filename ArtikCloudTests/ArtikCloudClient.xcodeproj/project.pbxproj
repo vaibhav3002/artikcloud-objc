@@ -221,7 +221,6 @@
 					};
 					63B9D1D41CAAE9EF0033D3D8 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 64N3JHS89D;
 						TestTargetID = 63B9D1B81CAAE9EF0033D3D8;
 					};
 				};
@@ -523,6 +522,7 @@
 			baseConfigurationReference = DBBB7486910BA46D9A3FAC06 /* Pods-ArtikCloudClientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ArtikCloudClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cloud.artik.ArtikCloudClientTests;
@@ -536,6 +536,7 @@
 			baseConfigurationReference = FE55AFBBB5A0F2FF64290CFD /* Pods-ArtikCloudClientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ArtikCloudClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cloud.artik.ArtikCloudClientTests;
