@@ -208,7 +208,8 @@
 				TargetAttributes = {
 					63B9D1B81CAAE9EF0033D3D8 = {
 						CreatedOnToolsVersion = 7.2.1;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = V499N43SKS;
+						ProvisioningStyle = Automatic;
 					};
 					63B9D1D41CAAE9EF0033D3D8 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -447,7 +448,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = V499N43SKS;
 				INFOPLIST_FILE = ArtikCloudClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cloud.artik.ArtikCloudClient;
@@ -459,7 +461,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = V499N43SKS;
 				INFOPLIST_FILE = ArtikCloudClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cloud.artik.ArtikCloudClient;
