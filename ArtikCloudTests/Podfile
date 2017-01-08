@@ -1,12 +1,12 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-target 'ArtikCloudClient', :exclusive => true do
-  pod "ArtikCloud", :path => "../"
-end
+platform :ios, '9.0'
+inhibit_all_warnings!
 
-target 'ArtikCloudClientTests', :exclusive => true do
-  pod "ArtikCloud", :path => "../"
+project 'ArtikCloudClient'
+use_frameworks!
 
-  pod 'Specta'
-  pod 'Expecta'
+target 'ArtikCloudClientTests' do
+  pod 'AFNetworking', '~> 3'
+  pod 'ArtikCloud', :path => '../'  
 end
