@@ -7,6 +7,5 @@ project 'ArtikCloudClient'
 use_frameworks!
 
 target 'ArtikCloudClientTests' do
-  pod 'AFNetworking', '~> 3'
   pod 'ArtikCloud', :path => '../'  
 end
