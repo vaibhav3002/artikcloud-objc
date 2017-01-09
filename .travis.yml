@@ -2,4 +2,4 @@ language: objective-c
 #xcode_project: ArtikCloudTests/ArtikCloudClient.xcodeproj # path to your xcodeproj folder
 #xcode_scheme: ArtikCloudClientTests
 script:
-  - xcodebuild -workspace ArtikCloudClient -scheme ArtikCloudCloudClient -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool -workspace ArtikCloudTests/ArtikCloudClient.xcworkspace -scheme ArtikCloudClientTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
