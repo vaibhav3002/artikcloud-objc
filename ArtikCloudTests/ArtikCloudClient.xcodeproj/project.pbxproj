@@ -19,7 +19,7 @@
 		63B9D1DA1CAAE9EF0033D3D8 /* UsersApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B9D1D91CAAE9EF0033D3D8 /* UsersApiTests.m */; };
 		63DB29431D67A22C00C97A60 /* ArtikCloudTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB29421D67A22C00C97A60 /* ArtikCloudTests.m */; };
 		63DB29451D67A34D00C97A60 /* artik.properties in Resources */ = {isa = PBXBuildFile; fileRef = 63DB29441D67A34D00C97A60 /* artik.properties */; };
-		F021AADA7449A8276098E229 /* Pods_ArtikCloudClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97DDCD105E36A660865D4BDE /* Pods_ArtikCloudClientTests.framework */; };
+		83D7761C4A9C0C730AB28F99 /* Pods_ArtikCloudClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E5D36D9C4FF01EC7D131BC /* Pods_ArtikCloudClientTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +53,9 @@
 		63DB29421D67A22C00C97A60 /* ArtikCloudTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtikCloudTests.m; sourceTree = "<group>"; };
 		63DB29441D67A34D00C97A60 /* artik.properties */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = artik.properties; sourceTree = "<group>"; };
 		63DB29481D67AAC600C97A60 /* ArtikCloudTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArtikCloudTests.h; sourceTree = "<group>"; };
-		77193F8BCAA1FF48A945D144 /* libPods-ArtikCloudClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ArtikCloudClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		97DDCD105E36A660865D4BDE /* Pods_ArtikCloudClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtikCloudClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBBB7486910BA46D9A3FAC06 /* Pods-ArtikCloudClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtikCloudClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FE55AFBBB5A0F2FF64290CFD /* Pods-ArtikCloudClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtikCloudClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		98E5D36D9C4FF01EC7D131BC /* Pods_ArtikCloudClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArtikCloudClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D3DB53476A9334C158C1676 /* Pods-ArtikCloudClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtikCloudClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EFB2E2093E777F0AD46D749D /* Pods-ArtikCloudClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtikCloudClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,20 +70,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F021AADA7449A8276098E229 /* Pods_ArtikCloudClientTests.framework in Frameworks */,
+				83D7761C4A9C0C730AB28F99 /* Pods_ArtikCloudClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		353F07CF6BE8B279D431F775 /* Frameworks */ = {
+		18B2B3503A388CC03A1AA708 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				77193F8BCAA1FF48A945D144 /* libPods-ArtikCloudClient.a */,
-				97DDCD105E36A660865D4BDE /* Pods_ArtikCloudClientTests.framework */,
+				9D3DB53476A9334C158C1676 /* Pods-ArtikCloudClientTests.debug.xcconfig */,
+				EFB2E2093E777F0AD46D749D /* Pods-ArtikCloudClientTests.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		63B9D1B01CAAE9EF0033D3D8 = {
@@ -93,8 +92,8 @@
 				63B9D1BB1CAAE9EF0033D3D8 /* ArtikCloudClient */,
 				63B9D1D81CAAE9EF0033D3D8 /* ArtikCloudClientTests */,
 				63B9D1BA1CAAE9EF0033D3D8 /* Products */,
-				D39371FC0DDE802F2A1A92E8 /* Pods */,
-				353F07CF6BE8B279D431F775 /* Frameworks */,
+				18B2B3503A388CC03A1AA708 /* Pods */,
+				9EE1AD3B5273348F8708C96F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,13 +146,12 @@
 			path = ArtikCloudClientTests;
 			sourceTree = "<group>";
 		};
-		D39371FC0DDE802F2A1A92E8 /* Pods */ = {
+		9EE1AD3B5273348F8708C96F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DBBB7486910BA46D9A3FAC06 /* Pods-ArtikCloudClientTests.debug.xcconfig */,
-				FE55AFBBB5A0F2FF64290CFD /* Pods-ArtikCloudClientTests.release.xcconfig */,
+				98E5D36D9C4FF01EC7D131BC /* Pods_ArtikCloudClientTests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,12 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63B9D1E11CAAE9EF0033D3D8 /* Build configuration list for PBXNativeTarget "ArtikCloudClientTests" */;
 			buildPhases = (
-				7B608960F6FA232A8BB7BC04 /* [CP] Check Pods Manifest.lock */,
+				38B056A1AE06A9358C54823D /* [CP] Check Pods Manifest.lock */,
 				63B9D1D11CAAE9EF0033D3D8 /* Sources */,
 				63B9D1D21CAAE9EF0033D3D8 /* Frameworks */,
 				63B9D1D31CAAE9EF0033D3D8 /* Resources */,
-				507B20BD820EC1328604E3AD /* [CP] Embed Pods Frameworks */,
-				C44FAE8CA874F86BB2B13987 /* [CP] Copy Pods Resources */,
+				905F120F9F01070DA19EE18A /* [CP] Embed Pods Frameworks */,
+				F3399CCD3195F46C7A1D211C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -258,22 +256,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		507B20BD820EC1328604E3AD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7B608960F6FA232A8BB7BC04 /* [CP] Check Pods Manifest.lock */ = {
+		38B056A1AE06A9358C54823D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -288,7 +271,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C44FAE8CA874F86BB2B13987 /* [CP] Copy Pods Resources */ = {
+		905F120F9F01070DA19EE18A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArtikCloudClientTests/Pods-ArtikCloudClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3399CCD3195F46C7A1D211C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -472,7 +470,7 @@
 		};
 		63B9D1E21CAAE9EF0033D3D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DBBB7486910BA46D9A3FAC06 /* Pods-ArtikCloudClientTests.debug.xcconfig */;
+			baseConfigurationReference = 9D3DB53476A9334C158C1676 /* Pods-ArtikCloudClientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = "";
@@ -486,7 +484,7 @@
 		};
 		63B9D1E31CAAE9EF0033D3D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE55AFBBB5A0F2FF64290CFD /* Pods-ArtikCloudClientTests.release.xcconfig */;
+			baseConfigurationReference = EFB2E2093E777F0AD46D749D /* Pods-ArtikCloudClientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = "";
