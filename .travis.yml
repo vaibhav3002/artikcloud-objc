@@ -3,3 +3,4 @@ language: objective-c
 #xcode_scheme: ArtikCloudClientTests
 script:
   - xctool -workspace ArtikCloudTests/ArtikCloudClient.xcworkspace -scheme ArtikCloudClientTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xctool test -workspace ArtikCloudTests/ArtikCloudClient.xcworkspace -scheme ArtikCloudClientTests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
