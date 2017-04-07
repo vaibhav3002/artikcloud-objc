@@ -75,7 +75,7 @@ NSInteger kACDevicesApiMissingParamErrorCode = 234513;
 ///
 /// Add Device
 /// Create a device
-///  @param device Device to be added to the user 
+///  @param device Device to be added to the user
 ///
 ///  @returns ACDeviceEnvelope*
 ///
@@ -145,7 +145,7 @@ NSInteger kACDevicesApiMissingParamErrorCode = 234513;
 ///
 /// Delete Device
 /// Deletes a device
-///  @param deviceId deviceId 
+///  @param deviceId deviceId
 ///
 ///  @returns ACDeviceEnvelope*
 ///
@@ -217,7 +217,7 @@ NSInteger kACDevicesApiMissingParamErrorCode = 234513;
 ///
 /// Delete Device Token
 /// Deletes a device's token
-///  @param deviceId deviceId 
+///  @param deviceId deviceId
 ///
 ///  @returns ACDeviceTokenEnvelope*
 ///
@@ -289,7 +289,7 @@ NSInteger kACDevicesApiMissingParamErrorCode = 234513;
 ///
 /// Get Device
 /// Retrieves a device
-///  @param deviceId deviceId 
+///  @param deviceId deviceId
 ///
 ///  @returns ACDeviceEnvelope*
 ///
@@ -361,7 +361,7 @@ NSInteger kACDevicesApiMissingParamErrorCode = 234513;
 ///
 /// Get device presence information
 /// Return the presence status of the given device along with the time it was last seen
-///  @param deviceId Device ID. 
+///  @param deviceId Device ID.
 ///
 ///  @returns ACPresenceEnvelope*
 ///
@@ -433,7 +433,7 @@ NSInteger kACDevicesApiMissingParamErrorCode = 234513;
 ///
 /// Get Device Token
 /// Retrieves a device's token
-///  @param deviceId deviceId 
+///  @param deviceId deviceId
 ///
 ///  @returns ACDeviceTokenEnvelope*
 ///
@@ -505,9 +505,9 @@ NSInteger kACDevicesApiMissingParamErrorCode = 234513;
 ///
 /// Update Device
 /// Updates a device
-///  @param deviceId deviceId 
+///  @param deviceId deviceId
 ///
-///  @param device Device to be updated 
+///  @param device Device to be updated
 ///
 ///  @returns ACDeviceEnvelope*
 ///
@@ -592,7 +592,7 @@ NSInteger kACDevicesApiMissingParamErrorCode = 234513;
 ///
 /// Update Device Token
 /// Updates a device's token
-///  @param deviceId deviceId 
+///  @param deviceId deviceId
 ///
 ///  @returns ACDeviceTokenEnvelope*
 ///
@@ -632,7 +632,7 @@ NSInteger kACDevicesApiMissingParamErrorCode = 234513;
     NSString *responseContentType = [[acceptHeader componentsSeparatedByString:@", "] firstObject] ?: @"";
 
     // request content type
-    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"text/plain"]];
+    NSString *requestContentType = [self.apiClient.sanitizer selectHeaderContentType:@[@"application/json"]];
 
     // Authentication setting
     NSArray *authSettings = @[@"artikcloud_oauth"];

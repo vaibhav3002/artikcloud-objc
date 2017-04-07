@@ -24,7 +24,7 @@ Add Device
 
 Create a device
 
-### Example 
+### Example
 ```objc
 ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
 
@@ -52,7 +52,7 @@ ACDevicesApi*apiInstance = [[ACDevicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **device** | [**ACDevice***](ACDevice*.md)| Device to be added to the user | 
+ **device** | [**ACDevice***](ACDevice*.md)| Device to be added to the user |
 
 ### Return type
 
@@ -79,7 +79,7 @@ Delete Device
 
 Deletes a device
 
-### Example 
+### Example
 ```objc
 ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
 
@@ -107,7 +107,7 @@ ACDevicesApi*apiInstance = [[ACDevicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceId** | **NSString***| deviceId | 
+ **deviceId** | **NSString***| deviceId |
 
 ### Return type
 
@@ -134,7 +134,7 @@ Delete Device Token
 
 Deletes a device's token
 
-### Example 
+### Example
 ```objc
 ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
 
@@ -162,7 +162,7 @@ ACDevicesApi*apiInstance = [[ACDevicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceId** | **NSString***| deviceId | 
+ **deviceId** | **NSString***| deviceId |
 
 ### Return type
 
@@ -189,7 +189,7 @@ Get Device
 
 Retrieves a device
 
-### Example 
+### Example
 ```objc
 ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
 
@@ -217,7 +217,7 @@ ACDevicesApi*apiInstance = [[ACDevicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceId** | **NSString***| deviceId | 
+ **deviceId** | **NSString***| deviceId |
 
 ### Return type
 
@@ -244,7 +244,7 @@ Get device presence information
 
 Return the presence status of the given device along with the time it was last seen
 
-### Example 
+### Example
 ```objc
 ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
 
@@ -272,7 +272,7 @@ ACDevicesApi*apiInstance = [[ACDevicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceId** | **NSString***| Device ID. | 
+ **deviceId** | **NSString***| Device ID. |
 
 ### Return type
 
@@ -299,7 +299,7 @@ Get Device Token
 
 Retrieves a device's token
 
-### Example 
+### Example
 ```objc
 ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
 
@@ -327,7 +327,7 @@ ACDevicesApi*apiInstance = [[ACDevicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceId** | **NSString***| deviceId | 
+ **deviceId** | **NSString***| deviceId |
 
 ### Return type
 
@@ -355,7 +355,7 @@ Update Device
 
 Updates a device
 
-### Example 
+### Example
 ```objc
 ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
 
@@ -385,8 +385,8 @@ ACDevicesApi*apiInstance = [[ACDevicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceId** | **NSString***| deviceId | 
- **device** | [**ACDevice***](ACDevice*.md)| Device to be updated | 
+ **deviceId** | **NSString***| deviceId |
+ **device** | [**ACDevice***](ACDevice*.md)| Device to be updated |
 
 ### Return type
 
@@ -413,7 +413,7 @@ Update Device Token
 
 Updates a device's token
 
-### Example 
+### Example
 ```objc
 ACConfiguration *apiConfig = [ACConfiguration sharedConfig];
 
@@ -441,7 +441,7 @@ ACDevicesApi*apiInstance = [[ACDevicesApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **deviceId** | **NSString***| deviceId | 
+ **deviceId** | **NSString***| deviceId |
 
 ### Return type
 
@@ -453,7 +453,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain
+ - **Content-Type**: applicaiton/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
